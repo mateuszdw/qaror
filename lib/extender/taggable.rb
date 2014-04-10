@@ -34,9 +34,9 @@ module Extender
         def check_tags
           unless self.tagnames.nil?
             # first tag must be in special tags array
-            unless Tag::SPECIAL_TAGS.include? tags_array_from_string.first
-              errors.add(:tagnames,:no_special_tags,:arr=>Tag::SPECIAL_TAGS.join(', '))
-            end
+            # unless Tag::SPECIAL_TAGS.include? tags_array_from_string.first
+            #   errors.add(:tagnames,:no_special_tags,:arr=>Tag::SPECIAL_TAGS.join(', '))
+            # end
 
             # check tags count
             if tags_array_from_string.count < Tag::MIN_TAGS || tags_array_from_string.count > Tag::MAX_TAGS
