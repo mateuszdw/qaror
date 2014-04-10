@@ -4,7 +4,7 @@ class Tag < ActiveRecord::Base
 
   STATUS_INACTIVE = 0
   STATUS_ACTIVE = 1
-  MIN_TAGS = 1
+  MIN_TAGS = 3
   MAX_TAGS = 5
   SPECIAL_TAGS = %w{sugestia błąd pytanie}
 
