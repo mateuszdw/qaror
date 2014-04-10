@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
 gem 'rails', '3.2.8'
 
 gem 'thin'
@@ -14,6 +15,7 @@ group :development do
 end
 
 group :production do
+  gem 'rails_12factor' # Added to avoid warnings on heroku
   gem 'newrelic_rpm'
 end
 
