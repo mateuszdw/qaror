@@ -1,0 +1,11 @@
+<div class="title">
+  <h1 class="left"><%= title t('activerecord.models.users') %></h1>
+  <div class="right">
+    <%= render_navigation(:context=>:users_sort) %>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="users" class="icontent">
+  <%= render 'list'  %>
+</div>
+<%= will_paginate(@users,:params => { :format => nil }) %>

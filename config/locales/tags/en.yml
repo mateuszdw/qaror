@@ -1,0 +1,23 @@
+en:
+  tags:
+    index:
+    show:
+      results: "All posts with tag"
+    new:
+    create:
+    edit:
+    update:
+    destroy:  
+
+  activerecord:
+    models:
+      tags: "Tags"
+      tag: "Tag"
+    attributes:
+      tag:
+        name: "Name"
+
+
+ 
+
+  

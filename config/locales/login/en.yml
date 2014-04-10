@@ -1,0 +1,12 @@
+en:
+  login: "Log in"
+
+  auth_message: "If you have an account at one of these sites, you do not need to register, you can sign up by clicking on their icon."
+
+  signin:
+    notyet: "Do not have an account yet?"
+
+  profile: "Profile"
+  logout: "Log out"
+  
+  login_error: "Invalid login or password"

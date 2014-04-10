@@ -1,0 +1,103 @@
+<div id="thr" class="lcontent">
+  <div id="thr-<%= @thr.id %>">
+    <div class="title">
+      <h1><%= title @thr.stitle %></h1>
+    </div>
+    <div class="left_side">
+      <%= render :partial=> 'shared/vote', :locals => { :object => @thr }  %>
+      <% if current_user  %>
+        <div class="favorite">
+          <%= link_to '',fav_thr_url(:id=>@thr),:title=>'Dodaj do ulubionych',:class=> (current_user.favs.map(&:activityable).include?(@thr) ? "fav active" : "fav") %>
+          <div class="fav_count"><%= @thr.users_fav.count if @thr.users_fav.count > 0 %></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="wrap_content right">
+        <% if current_user %>
+          <div class="content_options">
+            <% if can? :report_flag, @thr %>
+              <%= link_to t(:report_abuse) ,report_flag_thr_url(@thr.id),:class=>'_flash' %>
+              <span class="<%= @thr.class.name.downcase %>_flagged"><%= "(#{@thr.activities.flagged.count})" if @thr.activities.flagged.count > 0 %></span> |
+            <% end %>
+
+            <% if can? :report_close,@thr %>
+              <% if @thr.closed? %>
+                <%= link_to t(:open), reopen_thr_url(@thr.id), :method=> :put %> |
+              <% else %>
+                <%= link_to t(:close), report_close_thr_url(@thr.id),:class=> '_flash' %>
+                <span class="<%= @thr.class.name.downcase %>_closed"><%= "(#{@thr.activities.close_reported.count})" if @thr.activities.close_reported.count > 0 %></span> |
+              <% end %>
+            <% end %>
+
+            <% if can?(:retag, @thr) && cannot?(:edit, @thr) %>
+                <%= link_to (t :retag) , edit_thr_path(@thr.id) %> |
+            <% end %>
+
+            <% if can?(:edit, @thr) %>
+              <%= link_to (t :edit) , edit_thr_path(@thr.id) %>
+            <% end %>
+
+            <% if can?(:destroy, @thr) && !@thr.mark_as_destroyed? %>
+                | <%= link_to (t :destroy) , @thr,:class=> '_confirm-remote-delete',"data-confirmation" => 'Czy chcesz usunąć to pytanie ?' %>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="thr_content">
+          <% cache("thrs/#{@thr.id}/thr_content") do %>
+            <%= @thr.content %>
+          <% end %>
+        </div>
+        <div class="content_bottom">
+          <div class="left">
+            <div class="tags">
+              <% cache("thrs/#{@thr.id}/thr_tags") do %>
+                <% @thr.tagnames.split(' ').each do |name| %>
+                  <%= tag_schema(name) %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="right margin_left">
+            <div class="created_at small_font"><%= t(:created) %> <%= distance_of_time_in_words_to_now(@thr.created_at) %></div>
+            <div class="author"><%= user_label(@thr.user) %></div>
+          </div>
+          <% if @thr.versions.count > 0 %>
+            <div class="right">
+              <div class="created_at small_font"><%= link_to "#{t(:edited)} #{distance_of_time_in_words_to_now(@thr.versions.last.created_at)}",history_thr_url(@thr) %></div>
+              <div class="author"><%= user_label(@thr.versions.last.user) unless @thr.versions.last.user_id == @thr.user_id %></div>
+            </div>
+          <% end %>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div id="thr-<%= @thr.id %>" class="comments">
+          <% @comments = @thr.comments.active.sortable %>
+          <%= render :partial=>'comments/list' %>
+          <% if can? :new, @thr.comments.build %>
+            <div class="light_sep"></div>
+            <div class="new_comment_a" >
+              <%= link_to t("comments.new.comment_thr"),new_thr_comment_url(:thr_id=>@thr.id),:id=>'add_comment',:class=> 'ui_button small' %>
+            </div>
+            <div class="new_comment"></div>
+          <% end %>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <% if @thr.closed? %>
+      <% close_activity = @thr.activities.close_reported.last %>
+      <h2><%=raw t('thrs.closed.summary',:user=>close_activity.user.sname,:reason=>close_activity.extra) %></h2>
+    <% end %>
+  </div>  
+  <div class="answers">
+    <% if @ans.count > 0 %>
+      <div class="title">
+        <h2 class="left"><%= @ans.count %> <%= t("activerecord.models.ans") %></h2>
+        <div class="right">
+          <%= render_navigation(:context=>:ans_sort) %>
+        </div>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+    <%= render 'ans/list' %>
+  </div>
+</div>

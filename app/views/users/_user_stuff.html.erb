@@ -1,0 +1,14 @@
+<div class="user_stuff">
+  <% unless current_user %>
+    <div class="block">
+      <%= link_to t(:login), login_url, :class=>'ui_button' %>
+      <%= link_to t('users.new'), register_url,:class=>'ui_button' %>
+    </div>
+  <% else %>
+    <div class="block">
+      <%= user_label_small(current_user) %>
+      <%= link_to t(:profile), profile_url, :class=>'ui_button' %>
+      <%= link_to t(:logout), logout_url, :class=>'ui_button notsoimportant' %>
+    </div>
+  <% end %>
+</div>

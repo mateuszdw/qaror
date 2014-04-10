@@ -1,0 +1,18 @@
+<div class="list">
+  <% @comments.each do |comment| %>
+    <div id="comment-<%= comment.id %>" class="comment" >
+      <% if can? :edit, comment %>
+        <span class="comment_options">
+          <%#*send(:"edit_#{comment.commentable.class.name.downcase}comment_url",1,2)%>
+          &nbsp;<%= link_to t(:edit), edit_comment_url(comment),:id=>'edit_comment',:class=>'small_font' %> |
+          <%= link_to t(:destroy), comment, :class=> '_confirm-remote-delete small_font',"data-confirmation" => 'czy chcesz usunac komentarz ?' %>
+        </span>
+      <% end %>
+      <%# if can? :vote, comment %>
+        <%#= render :partial=> 'shared/vote', :locals => { :object => comment }  %>
+      <%# end %>
+      <span class="content"><%= comment.content %></span>&nbsp; &mdash; &nbsp;<%= user_label_small(comment.user) %>
+      <span class="created_at small_font"><%= distance_of_time_in_words_to_now(comment.created_at) %></span>
+    </div>
+  <% end %>
+</div>

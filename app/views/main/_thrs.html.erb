@@ -1,0 +1,15 @@
+<%= render 'main/top' %>
+<div id="thrs" class="lcontent">
+  <div class="title">
+    <div class="right">
+      <%= render_navigation(:context=>:thrs_sort) %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <% @thrs.each do |thr| %>
+    <%= render :partial=> 'thrs/item',:locals => {:thr=>thr} %>
+  <% end %>
+  <%= will_paginate @thrs, :params => { :format => nil } %>
+</div>
+<%= render 'main/rhelper' %>
+<div class="clear"></div>

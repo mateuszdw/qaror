@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="robots" content="all" />
+  <meta name="author" content="" />
+  <%= stylesheet_link_tag 'reset','application','admin' %>
+  <%= javascript_include_tag 'jquery.min','rails','application' %>
+  <%= csrf_meta_tag %>
+
+  <!--[if gte IE 5.5000]>
+  <script type="text/javascript" src="pngfixe.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <%= render :partial => 'shared/flash_window' %>
+  <div id="header">
+    <div class="inner_header clear_wrapper">
+      <div class="left">
+        <%= link_to APP_CONFIG['display_app_name'],root_url, :class=>'logo' %>
+      </div>
+      <div class="right">
+        <%= render_navigation(:context => :admin) %>
+      </div>
+    </div>
+  </div>
+  <div id="site">
+    <%= yield %>
+  </div>
+  <%= render 'layouts/bottom' %>

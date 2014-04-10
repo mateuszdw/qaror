@@ -1,0 +1,21 @@
+Hi <%= @user.name %>
+<br />
+<br />
+The question <%= link_to( @thr.stitle, thr_url(@thr)) %> you subscribed on <%= APP_CONFIG['display_app_name'] %>,
+<%=
+  case
+  when @last_activity.answer_created? then "has new answer"
+  when @last_activity.answer_resolved? then "has best answer selected"
+  when @last_activity.comment_created? then "has new comment"
+  end
+%>.
+<p>
+  ----------------------------<br />
+  &raquo; <%= link_to 'click here', ako_users_url(:k=>@user.apikey,:opt=>'sub_q',:opt_id=>@thr.id) %>
+  to unsubscribe from this question
+
+  <br />
+  &raquo; <%= link_to 'click here', ako_users_url(:k=>@user.apikey,:opt=>'sub_a') %>
+  to stop receiving notifications from <%= APP_CONFIG['display_app_name'] %>
+
+</p>

@@ -1,0 +1,23 @@
+<%= form_for([:admin,@page]) do |f| %>
+  <div class="field">
+    <%= f.label :unikalna_nazwa %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, :size=> '82x6' %>
+  </div>
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status,[['PUBLISH',Page::STATUS_ACTIVE],['UNPUBLISH',Page::STATUS_INACTIVE]] %>
+  </div>
+  <div class="field">
+    <%= field_messages_for @page %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

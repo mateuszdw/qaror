@@ -1,0 +1,332 @@
+en:
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%B %d, %Y'
+      short: ! '%b %d'
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour ago
+        other: about %{count} hours ago
+      about_x_months:
+        one: about 1 month ago
+        other: about %{count} months ago
+      about_x_years:
+        one: about 1 year ago
+        other: about %{count} years ago
+      almost_x_years:
+        one: almost 1 year ago
+        other: almost %{count} years ago
+      half_a_minute: half a minute ago
+      less_than_x_minutes:
+        one: less than a minute ago
+        other: less than %{count} minutes ago
+      less_than_x_seconds:
+        one: less than 1 second ago
+        other: less than %{count} seconds ago
+      over_x_years:
+        one: over 1 year ago
+        other: over %{count} years ago
+      x_days:
+        one: 1 day ago
+        other: ! '%{count} days ago'
+      x_minutes:
+        one: 1 minute
+        other: ! '%{count} minutes ago'
+      x_months:
+        one: 1 month
+        other: ! '%{count} months ago'
+      x_seconds:
+        one: 1 second
+        other: ! '%{count} seconds ago'
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      present: must be blank
+      confirmation: ! "doesn't match %{attribute}"
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      record_invalid: ! 'Validation failed: %{errors}'
+      restrict_dependent_destroy:
+        one: "Cannot delete record because a dependent %{record} exists"
+        many: "Cannot delete record because dependent %{record} exist"
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+      other_than: "must be other than %{count}"
+    template:
+      body: ! 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: ! '%{count} errors prohibited this %{model} from being saved'
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: $
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', and '
+      two_words_connector: ! ' and '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: pm
+
+  #
+  # end of default translations
+  #
+
+  all_fields_required: "All fields required"
+
+  unauthorized:
+    manage:
+      all: "You dont have access here"
+
+  unauthorize_desc: "<div style=\"margin-top:10px;\" class=\"small_font\">
+    Prawdopodobnie masz za mało punktów reputacji by wykonać tę czynność.
+    Pokręć się troche - zapytaj, odpowiedz, zgłoś - te działania zwiększają Twoja reputacje </div>"
+
+  # Repeated actions and phreases. Unassign to any logic
+  show: "Show"
+  edit: "Edit"
+  edited: "Edited"
+  destroy: "Delete"
+  created: "Created"
+  create_account: "Create account"
+  send: "Send"
+  save: "Save"
+  saved: "Saved"
+  cancel: "Cancel"
+  close: "Close"
+  open: "Open"
+  report_abuse: "Report abuse"
+  retag: "Retag"
+  views: "Views"
+  votes: "Votes"
+  
+
+  # search
+  search: "Search"
+  search_results: "Search results"
+  found: "results found"
+  search_presence: "No results. Please improve your query"
+  search_not_found: "No results. Please improve your query"
+
+  answer_stored: "Your answer has been saved but not yet published. Log in to post a stored document."
+  question_stored: "Your answer has been saved but not yet published. Log in to post a stored document."
+
+
+  sort:
+    ans:
+      active: "Active"
+      active_title: "Last answers"
+      oldest: "Oldest"
+      oldest_title: "Answers sort from oldest"
+      votes: "Votes"
+      votes_title: "Best answers"
+    tag:
+      activity: "Activity"
+      activity_title: "Questions for this tag with new answers or comments"
+      newest: "Newest"
+      newest_title: "Recent questions for this tag"
+      hot: "Hot"
+      hot_title: "Questions for this tag with most views, votes and ansewers"
+    tags:
+      popular: "Popular"
+      popular_title: "Tags sorted by popularity"
+      byname: "By name"
+      byname_title: "Tags sorted by name"
+      newest: "Newest"
+      newest_title: "Recently added tags"
+    thrs:
+      active: "Active"
+      active_title: "Questions with new answers or comments"
+      newest: "Newest"
+      newest_title: "Recent questions"
+      hot: "Hot"
+      hot_title: "Questions with most views, votes and ansewers"
+    user_tabs:
+      info: "Info"
+      info_title: "Info about user"
+      activity: "Activity"
+      activity_title: "Last user activity"
+      votes: "Votes"
+      votes_title: "Points earned by vote"
+      favorites: "Favorites"
+      favorites_title: "Favorite posts"
+    users:
+      newest: "Recently joined"
+      newest_title: "Sort by recently joined users"
+      reputation: "Reputation"
+      reputation_title: "Users sort by reputation"
+      
+
+  voteable:
+    bad_param: Bad parameter
+    onself: "You can't vote for your posts"
+    max_per_day: "per day exceeded Liczba %{max} głosów/dzień została przekroczona."
+    cant_undo: "Mineły 24 godziny od głosowania. Tego głosu nie można już cofnąć."
+    vote_already: "You already vote for this post"
+
+
+  flag_desc:
+    - "- Choose flag -"
+    - "Spam"
+    - "Advertisment"
+    - "Offensive, abusive or inappropriate content"
+    - "Content violates terms of service"
+    - "Content violates copyrights"
+    - "Content wrong or misleading"
+    - "Someone is rude here"
+    - "Content not related with topic"
+
+  close_desc:
+    - "- Wybierz -"
+    - "This question already exists, duplicate"
+    - "Content not related with topic"
+    - "Too subjective and vague"
+    - "This question has been answered and correct has been accepted"
+    - "The problem is out of date or does not make sense"
+
+  flag_or_close_reported: "Thank you for reporting"
+
+  simple_captcha:
+    label: "Please, type text from image:"
+    message:
+      default: "is incorrect. Are you human? Try again."
+
+  will_paginate:
+    previous_label: "&#8592;"
+    next_label: "&#8594;"
+    page_gap: "&hellip;"

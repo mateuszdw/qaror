@@ -1,0 +1,50 @@
+en:
+  activities:
+    names:
+      confirm_email: email confirmation 
+      create_thr: create question
+      delete_thr: delete question
+      answer_thr: answer to
+      create_an: answered
+      delete_an: delete answer
+      close_thr: closed
+      revise_thr: edit question
+      revise_an: edit answer
+      reopen_thr:
+      create_comment: create comment
+      delete_comment: delete comment
+      fav_thr: favorite question
+      day_activity: activity day
+      achieve: achievement
+      achieve_thr: achievement for the question
+      achieve_an: achievement for the answer
+      flag_thr: report
+      flag_an: report
+      resolved_an: marked best answer
+      # glosy
+      vote_up_thr: vote for yes
+      vote_down_thr: vote for no
+      vote_up_an: vote for yes
+      vote_down_an: vote for no
+      vote_up_comment: vote for yes
+      vote_down_comment: vote for no
+
+  activerecord:
+    models:
+      activities: "Activities"
+      activity: "Activity"
+    attributes:
+      activity:
+        name:
+
+    errors:
+      models:
+        activity:
+          attributes:
+            base:
+              report_reason: "Enter reason of your submission, this field is required"
+              closed_question: "Question is already closed"
+              too_many_reports: "Daily number of submissions has been exceeded "
+              already_reported: "Thank you for your submission \"%{content}\" "
+
+  

@@ -1,0 +1,43 @@
+<div class="thr <%= 'last' if @thrs && @thrs.last == thr %>">
+  <% if local_assigns[:show_fav] %>
+    <div class="favorite left">
+      <div class="fav active"></div>
+      <div class="fav_count"><%= thr.users_fav.count if thr.users_fav.count > 0 %></div>
+    </div>
+  <% end %>
+  <div class="thr_marks">
+    <div class="thr_mark">
+      <div class="thr_votes"><%= thr.vote_count %></div>
+      <div class="thr_subtitle"><%= t(:votes) %></div>
+    </div>
+  <% cache("thrs/#{thr.id}/ans_resolved_and_counter") do %>
+    <div class="an_mark <%= "resolved" if thr.resolved? %>">
+        <div class="an_count"><%= thr.ans.active.count(:id) %></div>
+        <div class="an_subtitle"><%= t("activerecord.models.ans") %></div>
+    </div>
+  <% end %>
+    <div class="clear"></div>
+  </div>
+  <div class="sneak">
+    <h2 class="left">
+      <% cache("thrs/#{thr.id}/thr_stitle") do %>
+        <%= link_to thr.stitle, thr %>
+      <% end %>
+    </h2>
+    <div class="hits"><%= thr.hits %> <span class="small_font"><%= t(:views) %></span></div>
+    <div class="clear"></div>
+    <div class="tags">
+      <% cache("thrs/#{thr.id}/thr_tags") do %>
+        <% thr.tagnames.split(' ').each do |name| %>
+          <%= tag_schema(name) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="authoring">
+      <div class="author"><%= user_label_small(thr.last_activity_user) %></div>
+      <div class="created_at small_font"><%= distance_of_time_in_words_to_now(thr.activity_at) %></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>

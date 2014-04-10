@@ -1,0 +1,12 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    /* tagi */
+    if($("#tagit").length > 0){
+      $("#tagit").tagit({
+        sourceTags: '<%= tags_search_index_url %>',
+        linkTags: '<%= tags_url %>',
+        specialTags: <%=raw Tag::special_tags %>
+      });
+    }
+  });
+</script>

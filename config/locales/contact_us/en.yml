@@ -1,0 +1,14 @@
+en:
+  
+  contact_us:
+    desc: 
+    
+  activerecord:
+    models:
+      contact_us: "Contact"
+      contact_u: "Contact"
+    attributes:
+      contact_u:
+        email: E-mail
+        content: Contents
+        

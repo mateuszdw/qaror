@@ -1,0 +1,3 @@
+$('#<%= @thr.class.name.downcase %> .favorite').html('<%= escape_javascript( 
+  link_to '',fav_thr_url(:id=>@thr),:class=> (current_user.favs.map(&:activityable).include?(@thr) ? "fav active" : "fav")
+) %><div class="fav_count"><%= @thr.users_fav.count if @thr.users_fav.count > 0 %></div>');

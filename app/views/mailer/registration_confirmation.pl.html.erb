@@ -1,0 +1,6 @@
+Witaj <%= @user.name %>
+<br />
+<br />
+Dziękujemy za rejestrację w serwisie <%= APP_CONFIG['display_app_name'] %><br />
+Twoje konto zostało utworzone i wymaga aktywacji, prosimy kliknąć w poniższy link:<br />
+<%= link_to(activate_users_url(:hash=>@user.activation_hash), activate_users_url(:hash=>@user.activation_hash)) %>

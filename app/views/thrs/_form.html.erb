@@ -1,0 +1,41 @@
+<%= form_for(@thr) do |f| %>
+  <% if action_name.include?("edit") || action_name.include?("update") %>
+    <% if @thr.versions.count > 0 %>
+      <div class="field">
+        <%= label_tag t("activerecord.attributes.thr.versions") %> &nbsp;
+        <%= select_tag(:version,
+            options_for_select(@thr.versions.map {|v| ["#{v.index} #{v.user.name} - #{l(v.created_at,:format=>:long)} - #{v.summary}",v.index]}.insert((@thr.versions.count),["-- aktualna --",@thr.versions.count]),@current_version),
+          :id=> :select_version ) %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="field">
+    <%= f.text_field :title ,:autocomplete => :off, :placeholder=> t("thrs.new.title_ph") %>
+    <div id="fast_search_results"></div>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, :size=> '85x4',:placeholder=> t("thrs.new.content_ph") %>
+  </div>
+  <div class="field">
+    <%#= f.label :tagnames %>
+    <div id="tags_preview"></div>
+    <%= f.text_field :tagnames,:id=>:tagit, :placeholder=> t("thrs.new.tagnames_ph",:tags=>Tag::SPECIAL_TAGS.join(', ')) %>
+  </div>
+  <% if action_name.include?("edit") || action_name.include?("update") %>
+    <div class="field">
+      <%= f.label :summary %>
+      <%= f.text_field :vsummary %>
+    </div>
+  <% end %>
+  <% if cannot?(:skip_captcha,Thr) %>
+    <div style="clear: left;float: left;">
+      <%= f.simple_captcha %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= field_messages_for @thr %>
+  </div>
+  <div class="actions">
+    <%= f.submit t(:send),:class=>"ui_button" %>
+  </div>
+<% end %>

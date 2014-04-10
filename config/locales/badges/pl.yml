@@ -1,0 +1,100 @@
+pl:
+  badges:
+    
+    famous_question:
+      name: Genialne pytanie
+      desc: Zadałeś pytanie, które odwiedzono %{value1} razy
+    fanatic:
+      name: Fanatyk
+      desc: Odwiedzałeś naszą stronę przez 100 kolejnych dni
+    great_answer:
+      name: Wspaniała odpowiedź
+      desc: Twoja odpowiedź uzyskała %{value1} głosów lub więcej
+    great_question:
+      name: Wspaniałe pytanie
+      desc: Twoje pytanie uzyskało %{value1} głosów lub więcej
+    stellar_question:
+      name: Słynne pytanie
+      desc: Ulubione pytanie %{value1} użytkowników
+
+    civic_duty:
+      name: Obowiązkowy
+      desc: Oddałeś na pytania i odpowiedzi łacznie %{value1} głosów
+    enthusiast:
+      name: Entuzjasta
+      desc: Odwiedzałeś naszą stronę przez %{value1} kolejnych dni
+    favorite_question:
+      name: Ulubione pytanie
+      desc: Ulubione pytanie %{value1} użytkowników
+    good_question:
+      name: Dobre pytanie
+      desc: Twoje pytanie uzyskało %{value1} głosów lub więcej
+    good_answer:
+      name: Dobra odpowiedź
+      desc: Twoja odpowiedź uzyskała %{value1} głosów lub więcej
+    notable_question:
+      name: Znane pytanie
+      desc: Zadałeś pytanie, które uzyskało %{value1} odsłon
+    taxonomist:
+      name: Wnikliwy
+      desc: Utworzony przez ciebie tag został użyty %{value1} razy
+    yearling:
+      name: Roczniak
+      desc: Od roku jesteś naszym aktywnym członkiem i uzyskałeś przynjamniej %{value1} punktów reputacji
+    autobiographer:
+      name: Egocentryk
+      desc: Wypełniłeś wszystkie pola w swoim profilu
+    citizen_patrol:
+      name: Sprawiedliwy
+      desc: Zgłosiłeś nadużycie po raz pierwszy
+    cleanup:
+      name: Pedant
+      desc: Po raz pierwszy wycofałeś post do wcześniejszej wersji
+    commentator:
+      name: Komentator
+      desc: Skomentowałeś %{value1} lub więcej postów
+    critic:
+      name: Krytyk
+      desc: Oddałeś swój pierwszy głos na nie
+    disciplined:
+      name: Zdyscyplinowany
+      desc: Usunąłeś własne pytanie z ilością %{value1} lub więcej głosów
+    editor:
+      name: Edytor
+      desc: Po raz pierwszy edytowałeś post
+    nice_answer:
+      name: Niezła odpowiedź
+      desc: Twoja odpowiedź uzyskała %{value1} głosów lub więcej
+    nice_question:
+      name: Niezłe pytanie
+      desc: Twoje pytanie uzyskało %{value1} głosów lub więcej
+    peer_pressure:
+      name: Pod presją
+      desc: Usunąłeś własne pytanie z przynajmniej %{value1} ujemnymi głosami
+    popular_question:
+      name: Popularne pytanie
+      desc: Zadałeś pytanie, które uzyskało %{value1} odsłon
+    scholar:
+      name: Badacz
+      desc: Zadałeś pytanie i zaakceptowałeś odpowiedź
+    self_learner:
+      name: Uczeń
+      desc: Zadałeś pytanie, które uzyskało przynajmniej %{value1} głosy dodatnie
+    supporter:
+      name: Wspierający
+      desc: Pierwszy głos na tak
+    teacher:
+      name: Nauczyciel
+      desc: Twoja odpowiedź uzyskała 1 lub wiecej głosów dodatnich
+      
+  activerecord:
+    models:
+      achievements: "Osiągnięcia"
+      achievement: "Osiągnięcie"
+    attributes:
+      achievement:
+        name:
+
+ 
+
+  

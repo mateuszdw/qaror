@@ -1,0 +1,45 @@
+<div class="lcontent">
+  <div class="title">
+    <h1><%= title t("activerecord.models.achievements") %></h1>
+  </div>
+  <div class="desc">
+    <%= t("achievements.desc") %>
+  </div>
+  <div class="achievements">
+    <table>
+      <% @badges.each do |badge| %>
+        <tr>
+            <td><%= image_tag('/images/content/accept.png') if !@have_badges.nil? && @have_badges.include?(badge.id) %></td>
+            <td style="padding-left:10px;width:230px;"><%= achievement_schema(badge) %></td>
+            <td>
+                <div class="achieve_desc">
+                  <%= t("badges.#{badge.name}.desc",
+                    :value1 => APP_BADGES_CONFIG[badge.name] ? APP_BADGES_CONFIG[badge.name].abs : nil) %>
+                </div>
+            </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>
+
+<div class="rhelper">
+  <div class="block">
+    <div class="title"><h3><%= t("achievements.legend") %></h3></div>
+    <div class="achievements">
+      <%= achievement_schema(t("achievements.gold_name"),nil,:class=>'gold') %>
+      <div><%= t("achievements.gold") %></div>
+      <br />
+      <%= achievement_schema(t("achievements.silver_name"),nil,:class=>'silver') %>
+      <div><%= t("achievements.silver") %></div>
+      <br />
+      <%= achievement_schema(t("achievements.brown_name"),nil,:class=>'bronze') %>
+      <div><%= t("achievements.brown") %></div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+
+
+

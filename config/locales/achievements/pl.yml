@@ -1,0 +1,22 @@
+pl:
+  achievements:
+    desc: "Jesli czesto odpowiadasz i zadajesz pytania w tym serwisie, otrzymujesz odpowiednie osiagniecia."
+    gold: "jest prestiżowym osiągnięciem, przyznawanym niezwykle rzadko."
+    silver: "oznacza twoje zaangażowanie. Dostając ją możesz liczyć na szacunek społeczności serwisu."
+    brown: "zdobędziesz ją najłatwiej za podstawową aktywność"
+    
+    index:
+    show:
+    
+
+  activerecord:
+    models:
+      achievements: "Osiągnięcia"
+      achievement: "Osiągnięcie"
+    attributes:
+      achievement:
+        name:
+
+ 
+
+  

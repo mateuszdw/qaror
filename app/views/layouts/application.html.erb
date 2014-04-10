@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%=h (!yield(:title).blank? && yield(:title)) || "Questions & Answers platform on Rails" %></title>
+  <% if controller_name == 'main' %>
+  <meta name="keywords" content="Questions & Answers platform on Rails" />
+  <meta name="description" content="Questions & Answers platform on Rails" />
+  <% end %>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="robots" content="all" />
+  <meta name="author" content="mattdw" />
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= render 'layouts/tagit'  if (['thrs','attaches'].include? controller_name) && (["new","create","edit","update"].include? action_name) %>
+  <!--[if gte IE 5.5000]>
+    <%#= javascript_include_tag 'pngfixe.js' %>
+  <![endif]-->
+  <%= csrf_meta_tag %>
+
+</head>
+<body>
+  <!-- flash windows -->
+  <%= render :partial => 'shared/flash_window' %>
+  <div id="header">
+    <div class="inner_header clear_wrapper">
+      <div class="left">
+        <%= link_to APP_CONFIG['display_app_name'],root_url, :class=>'logo' %>
+      </div>
+      <div class="right">
+        <%= render 'users/user_stuff' %>
+      </div>
+    </div>
+  </div>
+
+  <div id="site">
+    <%= yield %>
+  </div>
+    
+<%= render 'layouts/bottom' %>

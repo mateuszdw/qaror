@@ -1,0 +1,55 @@
+"pl":
+
+  users:
+    new: "Dołącz do nas!"
+    successfully_created: "Utworzono nowe konto przy użyciu "
+    successfully_activated: "Dziękujemy za potwierdzenie adresu e-mail. Możesz teraz korzystać ze wszystkich funkcji serwisu."
+    send_to_email: "Wyślij na e-mail"
+    email_not_exists_or_blocked: "Konto z podanym adresem e-mail nie istnieje lub jest zablokowane."
+    remind_password: "Nie pamiętam hasła"
+    remind_password_question: "Nie pamiętasz hasła?"
+    remind_password_desc: "Wpisz email zarejestrowany w serwisie"
+    change_password: "Zmień hasło"
+    change_password_desc: "Wpisz nowe hasło dla Twojego konta."
+    remind_password_send: "Informacje o zmianie hasła zostały wysłane na podany adres e-mail."
+    remind_password_confirm: "Twoje hasło zostało zmienione."
+
+    agreement_note: "Klikając w przycisk \"%{button}\", zgadzasz się na warunki "
+    old_user_password: "Dotychczasowe hasło"
+    new_user_password: "Nowe hasło"
+    new_user_password_confirmation: "Powtórz nowe hasło"
+    bad_old_user_password: "Nieprawidłowe dotychczasowe hasło"
+
+    subscription:
+      uncheck_thr: "Informacje z tego postu nie będą już wysyłane na Twój email. Naciśnij przycisk 'powiadom o zmianach' jeśli znów chcesz otrzymywać informacje o zmianach w tym poście"
+      uncheck_all: "Informacje z naszego serwisu nie będą już dostarczane na Twój email. Możesz włączyć subskrypcje w ustawieniach Twojego konta po zalogowaniu"
+
+    sort:
+      recently_joined: "Ostatnio dołączyli"
+      highest_reputation: "Najwyższa reputacja"
+
+  activerecord:
+    models:
+      users: "Użytkownicy"
+      user: "Użytkownik"
+    attributes:
+      user:
+        name: "Imię i Nazwisko"
+        name2: "nazwa"
+        email: "E-mail"
+        password: "Hasło"
+        password_confirmation: "Powtórz hasło"
+        birth: "Data urodzenia"
+        age: "wiek"
+        firstname: "Imię"
+        lastname: "Nazwisko"
+        role: "Rola"
+        status: "Stan konta"
+        timezone: "Strefa czasowa"
+        language: "Język"
+        created_at: "zarejestrowany"
+        last_login: "widziany"
+        reputation: "reputacja"
+        about: "O sobie"
+        www: "Strona www"
+        

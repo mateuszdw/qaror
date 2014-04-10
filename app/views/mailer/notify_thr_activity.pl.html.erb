@@ -1,0 +1,21 @@
+Witaj <%= @user.name %>
+<br />
+<br />
+W subskrybowanym przez Ciebie pytaniu 
+<%=
+  case
+  when @last_activity.answer_created? then "udzielono odpowiedzi"
+  when @last_activity.answer_resolved? then "autor oznaczył odpowiedź jako pomocną"
+  when @last_activity.comment_created? then "dodano komentarz"
+  end
+%>.
+Przejdź do strony z pytaniem:<br />
+<%= link_to( @thr.stitle, thr_url(@thr)) %>
+<p>
+  ----------------------------<br />
+  &raquo; Jeśli chcesz zrezygnować z subskrypcji dla tego pytania kliknij
+<%= link_to 'tutaj', ako_users_url(:k=>@user.apikey,:opt=>'sub_q',:opt_id=>@thr.id) %>
+  <br />
+  &raquo; Jeśli chcesz całkowicie zrezygnować z subskrypcji w <%= APP_CONFIG['display_app_name'] %> kliknij
+<%= link_to 'tutaj', ako_users_url(:k=>@user.apikey,:opt=>'sub_a') %>
+</p>

@@ -1,0 +1,19 @@
+<style type="text/CSS">
+  .simple_captcha_field input{
+    width: 128px !important;
+  }
+  .simple_captcha {
+    width:284px;
+    margin-bottom:10px;
+  }
+</style>
+<label><%= simple_captcha_options[:label] %></label>
+<div class="simple_captcha">
+  <div class="simple_captcha_field left" style="margin-top:5px;">
+    <%= simple_captcha_options[:field] %>
+  </div>
+  <div class="left margin_left">
+    <%= simple_captcha_options[:image] %>
+  </div>
+  <div class="clear"></div>
+</div>

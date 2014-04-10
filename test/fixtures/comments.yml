@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  content: MyText
+  hits: 1
+  vote_up: 1
+  vote_down: 1
+  activity_at: 2012-11-04 21:59:05
+  status: 1
+
+two:
+  content: MyText
+  hits: 1
+  vote_up: 1
+  vote_down: 1
+  activity_at: 2012-11-04 21:59:05
+  status: 1

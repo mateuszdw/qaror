@@ -1,0 +1,42 @@
+<div class="lcontent">
+  <div class="title">
+    <h2>Edycja - <%= @thr.stitle %></h2>
+  </div>
+  <div class="icontent">
+    <%= render 'form_retag' if can?(:retag, @thr) && cannot?(:edit, @thr) %>
+    <%= render 'form' if can?(:edit, @thr) %>
+  </div>
+</div>
+<div class="rhelper">
+  <% if can?(:edit, @thr) %>
+    <div class="block">
+      <div class="title"><h3>Edytuj tę wiadomość tylko gdy:</h3></div>
+      <div class="bdesc">
+        <li>informacja jest nieprecyzyjna lub nieprawdziwa</li>
+        <li>znajdziesz błąd lub masz dodatkowe informacje na wybrany temat</li>
+        <li>zawiera słowa niecenzuralne lub kogoś obraża</li>
+      </div>
+    </div>
+  <% end %>
+
+  <% if can?(:retag, @thr) && can?(:edit, @thr) %>
+    <div class="block">
+      <div class="title"><h3>Tagi</h3></div>
+      <div class="bdesc">
+      Zwróć uwagę na pole tagi, jeśli są one mało precyzyjne, umieść tam swoją propozycję.
+      Dodaj od <%= Tag::MIN_TAGS %> do <%= Tag::MAX_TAGS %> tagów odzielonych spacją
+      </div>
+    </div>
+  <% end %>
+
+  <% if can?(:edit, @thr) %>
+    <div class="block">
+      <div class="title"><h3>Wycofanie do wersji wcześniejszej i notka od edytora</h3></div>
+      <div class="bdesc">
+        Wszystkie zmiany w postach i odpowiedziach można przywrócić w za pomocą pola wyboru "wersja edycji".
+        Staraj sie poinformować innych jakie naniosłeś zmiany i wypełnij pole "Notka od edytora"
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="clear"></div>

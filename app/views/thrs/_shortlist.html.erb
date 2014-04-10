@@ -1,0 +1,33 @@
+<% @thrs.each do |thr| %>
+    <div class="thr <%= 'last' if @thrs.last == thr %>">
+      <div class="left">
+        <div class="votes"><%= thr.vote_count %></div>
+        <div class="thr_subtitle"><%= t(:votes) %></div>
+      </div>
+      <div class="left <%= "resolved" if thr.resolved? %>">
+        <div class="votes"><%= thr.ans.count %></div>
+        <div class="thr_subtitle"><%= t("activerecord.models.ans") %></div>
+      </div>
+      <% if thr.attaches.first && thr.attaches.first.thumbnailable? %>
+        <div class="left">
+          <%= image_tag thr.attaches.first.attach.url(:small) %>
+        </div>
+      <% end %>
+      <div class="left" style="margin-left:5px;">
+        <h2><%= link_to thr.stitle, thr %></h2>
+        <div>
+          <div class="tags">
+            <% thr.tags.each do |t| %>
+              <%= link_to t.name,tag_path(t) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="hits"><%= thr.hits %> <span class="small_font"><%= t(:views) %></span></div>
+        <div class="author"><%= user_label_small(thr.last_activity_user) %></div>
+        <div class="created_at small_font"><%= distance_of_time_in_words_to_now(thr.activity_at) %></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+<% end %>

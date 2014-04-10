@@ -1,0 +1,66 @@
+<div class="list">
+  <% @ans.each do |an| %>
+  <div id="an-<%= an.id %>" class="answer">
+    <div class="left_side">
+        <%= render :partial=> 'shared/vote', :locals => { :object => an }  %>
+        <%= render :partial=> 'ans/resolved', :locals => { :object => an }  %>
+    </div>
+    <div class="wrap_content right">
+      <% if can? :edit, an  %>
+        <div class="content_options">
+          <% if can? :report_flag, an %>
+            <%= link_to t(:report_abuse) ,report_flag_an_url(an),:class=>'_flash' %>
+            <span class="<%= an.class.name.downcase %>_flagged"><%= "(#{an.activities.flagged.count})" if an.activities.flagged.count > 0 %></span> |
+          <% end %>
+
+          <% if can? :edit, an %>
+            <%= link_to t(:edit) , edit_an_path(an) %> |
+          <% end %>
+
+          <% if can? :destroy, an %>
+              <%= link_to t(:destroy) , an, :class=> '_confirm-remote-delete',"data-confirmation" => 'Czy chcesz usunąć tę odpowiedź ?' %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="an_content">
+        <% cache("ans/#{an.id}/an_content") do %>
+          <%= an.content %>
+        <% end %>
+      </div>
+      <div class="content_bottom">
+        <div class="right margin_left">
+            <div class="created_at small_font"><%= t(:created) %> <%= distance_of_time_in_words_to_now(an.created_at) %></div>
+            <div class="author"><%= user_label(an.user) %></div>
+        </div>
+        <% if an.versions.count > 0 %>
+          <div class="right">
+            <div class="created_at small_font"><%= link_to "#{t(:edit)} #{distance_of_time_in_words_to_now(an.versions.last.created_at)}",history_an_url(an) %></div>
+            <div class="author"><%= user_label(an.versions.last.user) unless an.versions.last.user == an.user %></div>
+          </div>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+      <div id="an-<%= an.id %>" class="comments">
+        <% @comments = an.comments.active.sortable %>
+        <%= render :partial=>'comments/list' %>
+        <% if can? :new, an.comments.build %>
+          <div class="light_sep"></div>
+          <div class="new_comment_a"><%= link_to t("comments.new.comment_an"),new_an_comment_url(:an_id=> an.id ),:id=> :add_comment,:class=> 'ui_button small' %></div>
+          <div class="new_comment"></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <% end %>
+</div>
+<% unless @thr.closed? %>
+  <div class="title reverse">
+    <h2 id="your_answer">Twoja odpowiedź</h2>
+  </div>
+  <div class="icontent">
+    <div class="new_answer" >
+      <%= render 'ans/form' %>
+    </div>
+  </div>
+<% end %>

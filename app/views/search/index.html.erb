@@ -1,0 +1,26 @@
+<div id="thrs" class="lcontent">
+  <div class="title">
+    <h2><%=t :search_results %></h2>
+  </div>
+  <%= render 'shared/searchform' %>
+  <% if @error %>
+    <%= @error %>
+  <% else %>
+    <%= render 'thrs/list' %>
+    <%= will_paginate(@thrs,:params => { :format => nil }) %>
+  <% end %>
+</div>
+<div class="rhelper">
+  <div class="block">
+    <div class="results_count"><%= @thrs.total_entries %></div>
+    <div><%=t :found %></div>
+  </div>
+  <div class="block">
+    <div class="tags">
+      <% if @tag %>
+        <%= tag_schema @tag.name, @tag.quantity %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>

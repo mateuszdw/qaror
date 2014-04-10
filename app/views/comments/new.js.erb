@@ -1,0 +1,3 @@
+$('#<%= @commentable.class.name.downcase %>-<%= @commentable.id %> .new_comment_a').hide();
+$('#<%= @commentable.class.name.downcase %>-<%= @commentable.id %> .new_comment').show().parent().children('.new_comment').html('<%= escape_javascript(render ('form') ) %>');
+$("#comment_content").autoGrow();

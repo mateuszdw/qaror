@@ -1,0 +1,50 @@
+pl:
+  activities:
+    names:
+      confirm_email: potwierdzenie email
+      create_thr: utworzenie pytania
+      delete_thr: usunięcie pytania
+      answer_thr: odpowiedź na
+      create_an: udzielono odpowiedzi
+      delete_an: usunięcie odpowiedzi
+      close_thr: zamknięcie
+      revise_thr: edycja pytania
+      revise_an: edycja odpowiedzi
+      reopen_thr:
+      create_comment: utworzenie komentarza
+      delete_comment: usunięcie komentarza
+      fav_thr: uwielbił pytanie
+      day_activity: dzień aktywnosci
+      achieve: osiągnięcie
+      achieve_thr: osiągnięcie za pytanie
+      achieve_an: osiągnięcie za odpowiedź
+      flag_thr: zgłoszenie
+      flag_an: zgłoszenie
+      resolved_an: oznaczył najlepszą odpowiedź
+      # glosy
+      vote_up_thr: głos na tak
+      vote_down_thr: głos na nie
+      vote_up_an: głos na tak
+      vote_down_an: głos na nie
+      vote_up_comment: głos na tak
+      vote_down_comment: głos na nie
+
+  activerecord:
+    models:
+      activities: "Aktywności"
+      activity: "Aktywność"
+    attributes:
+      activity:
+        name:
+
+    errors:
+      models:
+        activity:
+          attributes:
+            base:
+              report_reason: "Podaj powód zgłoszenia, to pole jest wymagane"
+              closed_question: "Pytanie jest już zamknięte"
+              too_many_reports: "Przekroczono dzienną liczbę zgłoszeń"
+              already_reported: "Dziękujemy za twoje zgłoszenie \"%{content}\" "
+
+  

@@ -1,0 +1,7 @@
+<div class="ranks">
+  <% if !@user.ranks.blank? %>
+    <%=raw "<span class=\"gold\">#{@user.ranks["gold"]}</span>" if @user.ranks["gold"] %>
+    <%=raw "<span class=\"silver\">#{@user.ranks["silver"]}</span>" if @user.ranks["silver"] %>
+    <%=raw "<span class=\"bronze\">#{@user.ranks["bronze"]}</span>" if @user.ranks["bronze"] %>
+  <% end %>
+</div>

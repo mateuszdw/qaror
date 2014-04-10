@@ -1,0 +1,38 @@
+<div id="thrs" class="lcontent">
+  <div class="title">
+    <h2 class="left"><%=raw title(t('tags.show.results') +"<strong> #{sanitize(params[:id])} </strong>") %></h2>
+    <div class="right">
+      <%= render_navigation(:context=>:tag_sort) unless @thrs.blank? %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <%= render 'thrs/list' %>
+  <%= will_paginate @thrs,:params => { :format => nil } %>
+</div>
+<div class="rhelper">
+  <div class="block">
+    <div class="results_count"><%= @thrs.total_entries %></div>
+    <div><%=t :found %></div>
+  </div>
+  <div class="block">
+    <div class="tags">
+      <% if @tag %>
+        <%= tag_schema @tag.name, @tag.quantity %>
+      <% end %>
+    </div>
+  </div>
+  <!--
+  
+  <div class="block">
+    <div class="title"><h3>Powiadom o nowych pytaniach z tagiem <%= sanitize params[:id] %>?</h3></div>
+    <div class="content">
+      <div class="thr_sub">
+        <%= render :partial=> 'tags/subscription' %>
+      </div>
+      <div class="small_font"><strong>Przez RSS:</strong></div>
+      <%= image_tag '/images/content/feed_icon.png' %> odpowiedzi <br />
+      <%= image_tag '/images/content/feed_icon.png' %> odpowiedzi i komentarze<br />
+    </div>
+  </div>-->
+</div>
+<div class="clear"></div>

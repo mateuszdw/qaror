@@ -1,0 +1,21 @@
+<div id="tight">
+  <div class="title">
+    <h1><%= title t(:login) %></h1>
+  </div>
+  <div class="content">
+    <div class="desc">
+      <div class="left">
+        <%= t :auth_message %>
+      </div>
+      <div class="left">
+        <%= link_to image_tag('/assets/authbuttons/facebook_32.png',:border=>0),provider_url(:facebook) %>
+        <%= link_to image_tag('/assets/authbuttons/google_32.png',:border=>0), provider_url(:google) %>
+        <%= link_to image_tag('/assets/authbuttons/yahoo_32.png',:border=>0), provider_url(:yahoo) %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <%= render 'shared/loginform' %>
+    <br />
+    <h2><%= t("signin.notyet") %> <strong><%= link_to t("users.new"),register_url %></strong></h2>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+pl:
+  comments:
+    index:
+    show:
+    new:
+      comment_an: komentuj odpowiedź
+      comment_thr: komentuj temat
+    create:
+    edit:
+    update:
+    destroy:  
+
+  unauthorized:
+    read:
+      comment: "Nie możesz odczytać tego komentarza"
+    create:
+      comment: "Nie możesz tworzyć komentarzy"
+    update:
+      comment: "Nie możesz edytować komentarzy"
+    destroy:
+      comment: "Nie możesz usuwać komentarzy"
+    vote:
+      comment: "Nie możesz oddać głosu na ten komentarz"
+    vote_up:
+      comment: "Nie możesz oddać głosu na ten komentarz"
+    vote_down:
+      comment: "Nie możesz oddać głosu przeciw na ten komentarz"
+
+  activerecord:
+    models:
+      comments: "Komentarze"
+      comment: "Komentarz"
+    attributes:
+      comment:
+        content: "Treść komentarza"
+
+
+ 
+
+  

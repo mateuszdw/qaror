@@ -1,0 +1,9 @@
+<% if current_user %>
+  <div class="small_font"><strong>Przez email:</strong></div>
+  <% if @subscribe %>
+  nowe pytania z tym tagiem bedą przesyłane na twój email
+    <%= link_to 'nie powiadamiaj',subscribe_thr_url(:name=>@thr),:class=> 'remote-update'  %>
+  <% else %>
+    <%= link_to 'powiadom o zmianach',subscribe_thr_url(:name=>@thr),:class=> 'remote-update'  %>
+  <% end %>
+<% end %>

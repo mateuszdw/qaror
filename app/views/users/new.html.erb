@@ -1,0 +1,39 @@
+<div id="tight">
+  <div class="title">
+    <h1><%= title t("users.new") %></h1>
+  </div>
+  <div class="content">
+    <%= form_for(@user) do |f| %>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :email %> &nbsp;
+        <span style="height:26px;line-height:26px;" class="small_font"> (<%= t("users.email_not_public") %>)</span>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="field">
+        <%= f.simple_captcha %>
+      </div>
+      <div class="field">
+        <%= t"users.agreement_note",:button=>t("users.new") %> <strong><%= link_to t('users.agreement_link'), privacy_url,:target=> '_blank' %></strong>
+      </div>
+      <div class="field">
+        <%= field_messages_for @user %>
+      </div>
+      <div class="actions">
+        <%= f.submit t("users.new"), :class=>"ui_button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

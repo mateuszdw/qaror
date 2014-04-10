@@ -1,0 +1,21 @@
+<% object_name = object.class.name.downcase %>
+<div class="title">
+  <h3>
+    <%= link_to 'Wróć do '+ t("activerecord.models.#{object_name.pluralize}").downcase ,
+      thr_url((object_name == 'an' ? object.thr : object ),:anchor=>"#{object_name}-#{object.id}")
+    %>
+  </h3>
+</div>
+<% @versions.each do |version| %>
+  <% 
+    new_version = object
+    old_version = new_version.dup
+    new_version.revert_to(version.number)
+    old_version.revert_to(version.number - 1)
+  %>
+
+  <%= render :partial => 'shared/version',:locals=> {:version=>version,:new_version=>new_version,:old_version=>old_version} %>
+  <%= render :partial => 'shared/version',:locals=> {:version=>object.versions.first,:old_version=>old_version} %>
+  
+<% end %>
+<%= will_paginate(@versions,:params => { :format => nil }) %>

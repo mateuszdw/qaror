@@ -1,0 +1,27 @@
+<h1>Listing ans</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Hits</th>
+    <th>votes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ans.each do |an| %>
+  <tr>
+    <td><%= an.content %></td>
+    <td><%= an.hits %></td>
+    <td><%= an.votes %></td>
+    <td><%= link_to 'Show', an %></td>
+    <td><%= link_to 'Edit', edit_an_path(an) %></td>
+    <td><%= link_to 'Destroy', an, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New An', new_an_path %>

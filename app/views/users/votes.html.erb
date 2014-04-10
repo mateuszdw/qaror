@@ -1,0 +1,33 @@
+<div class="title">
+  <h2 class="left"><%=raw @user.sname %></h2>
+  <div class="right">
+    <%= render_navigation(:context=>:user_tabs) %>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="content">
+  <table id="activity_table">
+    <% @user.reputation_points.each do |activity_point| %>
+      <tr>
+        <td>
+          <% avalue = activity_point.value %>
+          <div class="<%= reputation_sign_humanized(avalue) %>"><%= reputation_sign(avalue) %><%= avalue %></div>
+        </td>
+        <td><div class="grey_font"><%= distance_of_time_in_words_to_now(activity_point.created_at) %></div></td>
+        <td><%= activity_point.activity.name_humanized %></td>
+        <td><strong>
+            <% if activity_point.activity.activityable_type == 'Thr' %>
+              <%= activity_point.activity.activityable.title %>
+            <% elsif activity_point.activity.activityable_type == 'An' %>
+              <%= activity_point.activity.activityable.thr.stitle %>
+            <% elsif activity_point.activity.activityable_type == 'Comment' %>
+              <%= activity_point.activity.activityable.content %>
+            <% elsif activity_point.activity.achievement %>
+              <%= activity_point.activity.achievement.name_or_tag %>
+            <% end %>
+          </strong>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

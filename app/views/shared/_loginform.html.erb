@@ -1,0 +1,21 @@
+<% if !current_user %>  
+    <%= form_for :login ,:url=>{ :action =>"create", :controller =>"login"},:html => {:style=>'float:left;'} do |f| %>
+      <%= hidden_field_tag :referer,request.referer %>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= flash_form_messages(:login) %>
+      </div>
+      <div class="actions">
+        <%= link_to t('users.remind_password'),remind_password_edit_users_url, :class=> 'ui_button naked' %>
+        <%= submit_tag t(:login),:class=>"ui_button" %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+<% end %>

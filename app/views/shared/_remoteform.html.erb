@@ -1,0 +1,7 @@
+<%= form_tag '',:id=>:urluploader,:autocomplete => :off do %>
+    <div class="field">
+      <%= text_field_tag 'url',nil %>
+      <% submit_tag 'search', :class => 'ui_button' %>
+      <div id="urluploader_results"></div>
+    </div>
+<% end %>

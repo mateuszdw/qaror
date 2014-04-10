@@ -1,0 +1,78 @@
+ability:
+  flag_voteup:
+    desc: "vote up and flag posts"
+    value: 0
+  leave_comments:
+    desc: "leave comments for all questions and answers. You can always leave comments under your questions and answers"
+    value: 5
+  votedown:
+    desc: "vote down"
+    value: 10
+  reduceads:
+    desc: "reduce ads"
+    value: 200
+  voteclose:
+    desc: "vote for close question"
+    value: 250
+  retag_reopen:
+    desc: "retag questions and vote for open questions"
+    value: 500
+  votetotal:
+    desc: "view votes details"
+    value: 1000
+  createtags:
+    desc: "create new tags"
+    value: 1500
+  editposts:
+    desc: "edit posts"
+    value: 2000
+
+max_rep_by_up_votes:             200
+
+confirm_email:                   10
+
+day_activity:                     0
+day_inactivity:                   0
+
+#
+# create, edit, delete, open posts
+#
+create_thr:                       1
+delete_thr:                      -1 # recommend -3
+
+create_an:                        2
+delete_an:                       -2
+
+revise:                           0
+revert:                           0
+
+flag:                            -2
+close_thr:                        1 # not used
+reopen_thr:                      -1 # not used
+create_comment:                   0
+
+#
+# best answers
+#
+an_resolved:                      2
+receives_an_resolved:            15
+
+#
+#  vote questions
+#
+vote_up_thr:                      0
+vote_down_thr:                   -1
+thr_receives_up_vote:             5 # recommend 10
+thr_receives_down_vote:          -2
+
+#
+#  vote answers
+#
+vote_up_an:                       0
+vote_down_an:                    -1
+an_receives_up_vote:             10
+an_receives_down_vote:           -2
+
+vote_up_comment:                  0
+
+vote_down_comment:                0

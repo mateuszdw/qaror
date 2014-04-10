@@ -1,0 +1,33 @@
+<h1>Listing pages</h1>
+<div id="content">
+  <table>
+    <tr>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Votes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.lang %></td>
+      <td><%= page.title %></td>
+      <td><%= truncate(page.content) %></td>
+      <td><%= page.status %></td>
+      <td><%= page.priority %></td>
+      <td><%= page.votes %></td>
+      <td><%= link_to 'Show', [:admin,page] %></td>
+      <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
+      <td><%= link_to 'Destroy', [:admin,page], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+<br />
+
+<%= link_to 'New Page', new_admin_page_path %>

@@ -1,0 +1,17 @@
+<% if local_assigns[:small].nil? %>
+  <div class="user_l">
+    <%= image_tag(APP_CONFIG['gravatar_url'] + Digest::MD5.hexdigest(@user.email) + "?d=identicon&s=40",
+      :class=> 'left',:width=>'40px',:height=>'40px') %>
+    <div class="name"><%= link_to raw(@user.sname),@user %></div>
+    <span class="reputation"><%= @user.reputation %></span>
+    <%= render 'users/user_ranks' %>
+    <div class="clear"></div>
+  </div>
+<% else %>
+  <div class="user_ls">
+    <div class="name"><%= link_to raw(@user.name),@user %></div>
+    <span class="reputation"><%= @user.reputation %></span>
+  </div>
+<% end %>
+
+

@@ -1,0 +1,4 @@
+flash_window('dialog');
+$('#flash_dialog .content').html('<%= escape_javascript(
+  render(:partial=>'shared/form_report',:locals => { :object => @thr,:report_type=>'flag' })
+) %>');

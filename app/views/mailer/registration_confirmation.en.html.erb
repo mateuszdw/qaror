@@ -1,0 +1,6 @@
+Hi <%= @user.name %>
+<br />
+<br />
+Thank you for registering on <%= APP_CONFIG['display_app_name'] %><br />
+Your account has been created and must be activated. Confirm your email with link:<br />
+<%= link_to(activate_users_url(:hash=>@user.activation_hash), activate_users_url(:hash=>@user.activation_hash)) %>

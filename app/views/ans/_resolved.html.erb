@@ -1,0 +1,15 @@
+<div class="resolved">
+  <% if object.can_unresolve? %>
+    <% if object.thr.user == current_user %>
+      <%= link_to '',unresolved_an_url(object), :class=>'remote-update active',:title=> t('ans.resolved') %>
+    <% else %>
+      <span title="<%= t('ans.resolved') %>" class="active"></span>
+    <% end %>
+  <% else %>
+    <%# unless object.thr.resolved? %>
+      <% if object.thr.user == current_user %>
+        <%= link_to '',resolved_an_url(object),:class=>'remote-update',:title=> t('ans.unresolved') %>
+      <% end %>
+    <%# end %>
+  <% end %>
+</div>

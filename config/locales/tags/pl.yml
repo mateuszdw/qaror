@@ -1,0 +1,22 @@
+pl:
+  tags:
+    index:
+    show:
+    new:
+    create:
+    edit:
+    update:
+    destroy:  
+
+  activerecord:
+    models:
+      tags: "Tagi"
+      tag: "Tag"
+    attributes:
+      tag:
+        name: "Nazwa"
+
+
+ 
+
+  

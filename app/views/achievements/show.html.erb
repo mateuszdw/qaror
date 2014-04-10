@@ -1,0 +1,16 @@
+<div class="title">
+  <h1><%= title "#{t('activerecord.models.achievement')} - " + t("badges.#{@badge.name}.name") %></h1>
+</div>
+<div class="desc"><%= achievement_schema(@badge,:count=>false) %>
+  <%= t("badges.#{@badge.name}.desc",
+                    :value1 => APP_BADGES_CONFIG[@badge.name] ? APP_BADGES_CONFIG[@badge.name].abs : nil) %>
+</div>
+<div class="icontent">
+  <div style="margin-bottom:10px;">
+    <span class="results_count"><%= @badge.achievements.count(:id) %></span>
+    <span><%= t('achievements.user_desc') %></span>
+  </div>
+  <% @badge.achievements.each do |achievement| %>
+    <div class="user_l"><%= user_label(achievement.user) %></div>
+  <% end %>
+</div>

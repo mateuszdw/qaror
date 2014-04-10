@@ -1,0 +1,26 @@
+<div id="main">
+  <div class="title">
+    <h2>Formularz kontaktowy</h2>
+  </div>
+  <div id="content">
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Content</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @contact_us.each do |contact_u| %>
+      <tr>
+        <td><%=raw contact_u.user ? contact_u.user.sname : contact_u.email %></td>
+        <td><%= contact_u.content %></td>
+        <td><%= link_to 'Show', [:admin,contact_u] %></td>
+        <td><%= link_to 'Edit', edit_admin_contact_u_path(contact_u) %></td>
+        <td><%= link_to 'Destroy', [:admin,contact_u], :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

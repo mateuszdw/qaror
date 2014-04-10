@@ -1,0 +1,39 @@
+<div class="column_main full">
+  <div class="title">
+    <h2><%=raw @user.sname %></h2>
+  </div>
+  <div class="content_padding">
+    <%= form_for(@user, :url => admin_user_path(@user)) do |f| %>
+      <div class="left">
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :role %>
+          <%= f.select :role, { role(1) => 1,role(2) => 2, role(3) => 3 },:selected => @user.role %>
+        </div>
+        <div class="field">
+          <%= f.label :status %>
+          <%= f.select :status, { status(1) => 1, status(2) => 2,status(9) => 9 },:selected => @user.status %>
+        </div>
+      </div>
+      <div class="right">
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="buttons">
+        <%= link_to (t :cancel),admin_users_path,:class=>"ui_button _cancel" %>
+        <%= submit_tag (t :save),:class=>"ui_button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

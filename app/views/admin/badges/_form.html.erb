@@ -1,0 +1,20 @@
+<%= form_for([:admin,@badge]) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :achieved_count %>
+    <%= f.text_field :achieved_count %>
+  </div>
+  <div class="field">
+    <%= f.label :badge_type %>
+    <%= f.select :badge_type,[['GOLD',1],['SILVER',2],['BRONZE',3]] %>
+  </div>
+  <div class="field">
+    <%= field_messages_for @badge %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

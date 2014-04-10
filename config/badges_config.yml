@@ -1,0 +1,32 @@
+# based on impressions
+popular_question: 10000
+notable_question: 25000
+famous_question: 100000
+
+# votes for questions
+nice_question: 10
+good_question: 25
+great_question: 100
+
+# votes for answers
+nice_answer: 10
+good_answer: 25
+great_answer: 100
+
+civic_duty: 300
+
+disciplined: 3
+peer_pressure: -3
+commentator: 10
+taxonomist: 50
+enthusiast: 30
+fanatic: 100
+self_learner: 3
+teacher: 1
+yearling_years: 1
+yearling_reputation: 200
+
+
+# favorite questions
+favorite_question: 25
+stellar_question: 100

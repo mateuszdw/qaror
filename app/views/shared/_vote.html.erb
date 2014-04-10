@@ -1,0 +1,13 @@
+<div class="votes">
+  <span><%= object.vote_up if object.vote_up > 0 && can?(:vote_total,object) %></span>
+  <a title="głos na tak" class="plus <%= 'active' if current_user && object.voted?(current_user,'up') %>"
+     href="<%= url_for :controller=> object.class.name.downcase.pluralize, :action=>:vote, :id=>object.id, :vote=>'up' %>">
+  </a>
+  <div class="counter">
+    <%= object.vote_count %>
+  </div>
+  <a title="głos na nie" class="minus <%= 'active' if current_user && object.voted?(current_user,'down') %>"
+     href="<%= url_for :controller=> object.class.name.downcase.pluralize,:action=>:vote, :id=>object.id, :vote=>'down' %>">
+  </a>
+  <span><%= object.vote_down if object.vote_down > 0 && can?(:vote_total,object) %></span>
+</div>

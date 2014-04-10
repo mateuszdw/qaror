@@ -1,0 +1,29 @@
+<h1>Listing authentications</h1>
+    <%= link_to image_tag('/images/authbuttons/google_32.png',:border=>0), provider_url(:google) %>
+    <%= link_to image_tag('/images/authbuttons/openid_32.png',:border=>0), root_url + 'auth/open_id?openid_url=openid.wp.pl' %>
+    <%= link_to image_tag('/images/authbuttons/yahoo_32.png',:border=>0), provider_url(:yahoo) %>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Provider</th>
+    <th>Uid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @authentications.each do |authentication| %>
+  <tr>
+    <td><%= authentication.user_id %></td>
+    <td><%= authentication.provider %></td>
+    <td><%= authentication.uid %></td>
+    <td><%= link_to 'Show', authentication %></td>
+    <td><%= link_to 'Edit', edit_authentication_path(authentication) %></td>
+    <td><%= link_to 'Destroy', authentication, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Authentication', new_authentication_path %>

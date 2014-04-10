@@ -1,0 +1,14 @@
+<%= form_for(@thr) do |f| %>
+  <%= f.hidden_field :vsummary, :value => 'przetagowanie' %>
+  <div class="field">
+    <div id="tags_preview"></div>
+    <%= f.label :tagnames %>
+    <%= f.text_field :tagnames,:id=>:tagit %>
+  </div>
+  <div class="field">
+    <%= field_messages_for @thr %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"ui_button" %>
+  </div>
+<% end %>

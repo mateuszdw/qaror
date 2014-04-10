@@ -1,0 +1,15 @@
+<div id="version-<%= version.number %>" class="history">
+  <div class="number">
+    <h1 id="versions_toggle" class="left"><%= version.number %></h1>
+    <div class="left"><%= 'wersja aktualna' if (@versions.first.number) > version.number %></div>
+    <div class="author right"><%= user_label(version.user) %></div>
+    <div class="clear"></div>
+  </div>
+  <div <%=raw 'style="display:none;"' if (@versions.first.number - 1) > version.number %> class="mods">
+    <% if local_assigns[:new_version] && local_assigns[:old_version] %>
+      <%=raw Differ.diff_by_line(new_version.content,old_version.content).format_as(:html) %>
+    <% else %>
+      <%=raw old_version.content %>
+    <% end %>
+  </div>
+</div>

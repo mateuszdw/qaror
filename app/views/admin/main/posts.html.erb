@@ -1,0 +1,34 @@
+<div class="title">
+  <h2 class="left">usuniete i ukryte posty</h2>
+  <div class="right">
+    <%= render_navigation(:context=>:admin_posts) %>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="content">
+  <table>
+    <th>data</th>
+    <th>autor</th>
+    <th>tresc</th>
+    <th>ostatnia aktywnosc</th>
+    <th>status</th>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><h3><%= distance_of_time_in_words_to_now(post.created_at) %></h3></td>
+        <td><%=raw post.user.sname %></td>
+        <td>
+          <% if post.class.name == 'Thr' %>
+            <%= link_to post.stitle, thr_url(post) %>
+          <% elsif post.class.name == 'An' %>
+            <%= link_to truncate(post.thr.stitle,:length=>50), thr_url(post.thr,:anchor=> 'an-'+post.id.to_s) %>
+          <% elsif post.class.name == 'Comment' %>
+            <%= link_to truncate(post.commentable.stitle,:length=>50), thr_url(post.commentable,:anchor=> 'comment-'+post.id.to_s) %>
+          <% end %>
+        </td>
+        <td><%= post.activities.last.name_humanized %> przez <%=raw post.activities.last.user.sname %></td>
+        <td>dsa</td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate(@posts,:params => { :format => nil }) %>
+</div>

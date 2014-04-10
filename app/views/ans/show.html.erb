@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @an.content %>
+</p>
+
+<p>
+  <b>Hits:</b>
+  <%= @an.hits %>
+</p>
+
+<p>
+  <b>votes:</b>
+  <%= @an.votes %>
+</p>
+
+
+<%= link_to 'Edit', edit_an_path(@an) %> |
+<%= link_to 'Back', ans_path %>

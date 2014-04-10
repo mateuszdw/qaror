@@ -1,0 +1,58 @@
+<div class="f_outer" style="<%= (flash[:notice] || flash[:warning] || flash[:error]) ? nil:'display:none;' %>">
+  <div class="f_center">
+    <div class="f_middle">
+      <div class="flash_background">
+        <div id="flash_dialog" class="flash_window" style="display:none;">
+          <h2>Wypełnij formularz</h2>
+          <div class="content">
+          </div>
+        </div>
+        <div id="flash_confirm" class="flash_window" style="display:none;">
+          <h2>Potwierdzenie</h2>
+          <div class="content">
+          </div>
+          <div class="actions">
+              <%= link_to 'Tak', '',:class=>"_confirm ui_button" %>
+              <%= link_to 'Nie', '',:class=>"_close ui_button" %>
+          </div>
+        </div>
+        <div id="flash_messages" class="flash_window">
+          <% if flash[:notice] || flash[:warning] || flash[:error] %>
+              <% if flash[:notice] %>
+                <h2>Komunikat</h2>
+              <% end %>
+              <% if flash[:warning] %>
+              <% end %>
+              <% if flash[:error] %>
+              <% end %>
+          <% end %>
+          <div class="content">
+            <%=raw flash[:notice] %>
+          </div>
+          <div class="actions">
+              <%= link_to 'OK', '',:class=>"_close ui_button" %>
+          </div>
+        </div>
+        <div id="flash_editor" class="flash_window" style="display:none;">
+          <span class="_close">&#215;</span>
+          <h2>Wstaw zdjęcie</h2>
+          <div class="content">
+            <div>
+              <span><strong>Z sieci</strong></span>
+              <span style="height:26px;line-height:26px;" class="small_font"> (wklej adres url zawierający zdjęcia)</span>
+              <%= render 'shared/remoteform' %>
+            </div>
+            <div class="sep_dotted"></div>
+            <div>
+              <span><strong>Z komputera</strong></span>
+              <span style="height:26px;line-height:26px;" class="small_font"> (formaty .jpg, .gif, .png o rozmiarze do 4mb)</span>
+              <div id="fileuploader"></div>
+              <%#= render 'attaches/form' %>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

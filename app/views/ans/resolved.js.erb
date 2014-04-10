@@ -1,0 +1,3 @@
+$('#<%= @an.class.name.downcase %>-<%= @an.id %> .left_side .resolved').replaceWith('<%= escape_javascript( 
+  render(:partial=>'ans/resolved',:locals => { :object => @an })
+) %>');

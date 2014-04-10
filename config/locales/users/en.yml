@@ -1,0 +1,71 @@
+en:
+
+  users:
+    show:
+      questions: "Asked questions"
+      answers: "Given answers for questions"
+      votes: "User votes"
+      tags: "Used tags"
+      achievements: "User achievements"
+
+    edit:
+      title: "Edit user"
+      
+    new: "Sign in"
+    successfully_created: "Created new account using "
+    successfully_activated: "Thank you for confirming your email address. You can now use all the features of the site."
+    send_to_email: "Send email"
+    email_not_exists_or_blocked: "Account with this email address doesn't exist or is blocked."
+    remind_password: "I forgot my password!"
+    remind_password_question: "Forgot your password?"
+    remind_password_desc: "Enter email address which you sign on this site"
+    change_password: "Change password"
+    change_password_desc: "Enter new password for your account."
+    remind_password_send: "Information about changing your password has been sent to specified email address."
+    remind_password_confirm: "Your password has been changed"
+    change_gravatar: "Change Gravatar"
+    activation_link: "Send activation link"
+
+    agreement_note: "By clicking \"%{button}\", you agree with"
+    agreement_link: "terms of service"
+    old_user_password: "Current password"
+    new_user_password: "New password"
+    new_user_password_confirmation: "Repeat new password"
+    bad_old_user_password: "Invalid current password"
+    email_not_public: "will not be shown"
+
+    subscription:
+      title: "Subscription"
+      desc: "Notify when"
+      notify_answers: "someone answered to the question"
+      notify_comments: "someone leave comment"
+      notify_answer_resolved: "best answer was accepted"
+
+      uncheck_thr: "Information from this post will no longer be sent to your email. Press 'notify about changes' if you wish to receive information about changes in this post again"
+      uncheck_all: "Information from our site will no longer be send to your email. You can turn off subscriptions in your account settings after log in"
+
+  activerecord:
+    models:
+      users: "Users"
+      user: "User"
+    attributes:
+      user:
+        name: "Firstname and lastname"
+        name2: "Username"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Repeat password"
+        birth: "Date of birth"
+        age: "Age"
+        firstname: "Firstname"
+        lastname: "Lastname"
+        role: "Role"
+        status: "Status account"
+        timezone: "Timezone"
+        language: "Language"
+        created_at: "Registered"
+        last_login: "Last seen"
+        reputation: "Reputation"
+        about: "About me"
+        www: "Site url"
+        

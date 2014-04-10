@@ -1,0 +1,20 @@
+<div class="rhelper">
+  <div class="block">
+    <div class="title"><h3>Latest tags</h3></div>
+    <div class="tags">
+      <% @tag_thr.each do |k,v| %>
+          <%= tag_schema(k,v) %>
+      <% end %>
+    </div>
+  </div>
+  <% if !@achievements.blank? %>
+    <div class="block">
+      <div class="title"><h3>Latest achievements</h3></div>
+      <div class="achievements">
+        <% @achievements.each do |achievement| %>
+          <div><%= achievement_schema(achievement.badge,:count=>false) %> <%=raw achievement.user.sname %></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

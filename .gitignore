@@ -1,0 +1,7 @@
+log/*.log
+tmp/**/*
+nbproject/
+uploads/
+attaches/
+.bundle/config
+.ruby-version

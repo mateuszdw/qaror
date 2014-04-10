@@ -1,0 +1,41 @@
+<%= render 'thrs/schema' %>
+<div class="rhelper">
+  <div class="block">
+    <div class="title"><h3><%= t("thrs.show.details") %></h3></div>
+    <div class="tags">
+      <% @tag_thr.each do |k,v| %>
+          <%= tag_schema(k,v) %>
+      <% end %>
+    </div>
+    <div class="bdesc">
+      <div><%= t(:created) %>: <%= l @thr.created_at,:format=>:short %></div>
+      <div><%= t(:views) %>: <%= @thr.hits %></div>
+      <% if @thr.versions.count > 0 %>
+        <div><%= t(:edit) %>: <%= l @thr.versions.last.created_at,:format=>:short %></div>
+      <% end %>
+    </div>
+  </div>
+  <% if current_user %>
+    <div class="block">
+      <div class="title"><h3><%= t("thrs.show.interesting") %></h3></div>
+      <div class="bdesc">
+        <% render :partial=> 'shared/shareit', :locals => { :object => @thr }  %>
+        <div class="thr_sub">
+          <%= render :partial=> 'thrs/subscription' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% cache("thrs/#{@thr.id}/related_thrs") do %>
+    <% if !@related_thrs.blank? %>
+      <div class="block">
+        <div class="title"><h3><%= t("thrs.show.related") %></h3></div>
+        <% @related_thrs.each do |thr| %>
+          <div class="related"><%= link_to thr.stitle,thr %></div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+  
+</div>
+<div class="clear"></div>

@@ -1,0 +1,21 @@
+en:
+  achievements:
+    legend: "Achievements legend"
+    desc: "If you frequently answer and ask questions on this website, you are getting adequate achievements."
+    gold_name: "Gold"
+    gold: "is a prestigious achievement, granted rarely."
+    silver_name: "Silver"
+    silver: "is your involvement. Getting it you can count on respect from community service."
+    brown_name: "Brown"
+    brown: "granted for basic activity"
+
+    user_desc: "Users who have already earned this achievement"
+    
+
+  activerecord:
+    models:
+      achievements: "Achievements"
+      achievement: "Achievement"
+    attributes:
+      achievement:
+        name:

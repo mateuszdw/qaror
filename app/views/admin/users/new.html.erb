@@ -1,0 +1,39 @@
+<div id="main">
+  <div class="title">
+    <h1>Nowy uzytkownik</h1>
+  </div>
+  <div class="content">
+    <div class="desc">Po utworzeniu uzytkownika Mail nie jest wysyłany</div>
+    <%= form_for([:admin,@user]) do |f| %>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :email %> &nbsp;
+        <span style="height:26px;line-height:26px;" class="small_font"> (nie będzie udostepniny publicznie)</span>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="field">
+        <%= f.label 'potwierdź to konto' %>
+        <%= f.check_box "status",{:checked => true}, "2", "0" %>
+      </div>
+      <div class="field">
+        <%= field_messages_for @user %>
+      </div>
+      <div class="actions">
+        <%= link_to (t :cancel),admin_users_path,:class=>"ui_button _cancel" %>
+        <%= f.submit :class=>"ui_button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

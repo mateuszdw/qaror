@@ -1,0 +1,40 @@
+en:
+  comments:
+    index:
+    show:
+    new:
+      comment_an: comment answer
+      comment_thr: comment question
+    create:
+    edit:
+    update:
+    destroy:  
+
+  unauthorized:
+    read:
+      comment: "You can't read this comment"
+    create:
+      comment: "You can't create comments"
+    update:
+      comment: "You can't edit comments"
+    destroy:
+      comment: "You can't delete comments"
+    vote:
+      comment: "You can't vote on this comments"
+    vote_up:
+      comment: "You can't vote on this comments"
+    vote_down:
+      comment: "You can't vote against this comments"
+
+  activerecord:
+    models:
+      comments: "Comments"
+      comment: "Comment"
+    attributes:
+      comment:
+        content: "Comment contents"
+
+
+ 
+
+  

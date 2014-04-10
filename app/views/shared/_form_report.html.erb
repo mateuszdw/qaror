@@ -1,0 +1,16 @@
+<%= form_for(object,:url => :"#{report_type}_#{object.class.name.downcase}",:html => {:class => 'remote-submit' }) do |f| %>
+  <div style="margin-bottom:5px;" class="small_font">Wybierz lub opisz co jest powodem twojego zgłoszenia:</div>
+  <div class="field">
+    <%= select_tag(:select_acomment, options_for_select(t("#{report_type}_desc")) ) %>
+  </div>
+  <div class="field">
+    <%= text_area_tag :acomment,'' %>
+  </div>
+  <div class="field">
+    <%= field_messages_for object %>
+  </div>
+  <div class="actions">
+    <%= submit_tag t("send"), :class=>"ui_button" %>
+    <%= link_to t('close'),'',:class=> "_close ui_button" %>
+  </div>
+<% end %>

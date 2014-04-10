@@ -1,0 +1,29 @@
+common: &common
+  pagination_per_page: 20
+
+  display_app_name: "QAROR"
+
+  # for mailer only
+  app_domain: "qaror.herokuapp.com"
+
+  remote_external_hash: "__external_hash"
+  remote_cookies: "__session"
+
+  # false - users cant gain achievements
+  gain_achievements: true
+
+  # true - generate more not unique impressions, must include this in badges_config
+  # false - not save impressions to database
+  unique_impressions: true
+
+  manage_achievements: true
+  manage_users: true
+  manage_login: true
+
+  gravatar_url: "http://www.gravatar.com/avatar/"
+
+development:
+  <<: *common
+
+production:
+  <<: *common

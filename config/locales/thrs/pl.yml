@@ -1,0 +1,68 @@
+pl:
+  thrs:
+    index:
+    show:
+    new:
+      title: "Nowa wiadomość"
+    create:
+      saved: "Wiadomość została opublikowana"
+    edit:
+    update:
+      saved: "Wiadomość została zapisana"
+    destroy:  
+
+  unauthorized:
+    read:
+      thr: "Nie możesz odczytać"
+    create:
+      thr: "Nie możesz tworzyć wiadomości"
+    update:
+      thr: "Nie możesz edytować wiadomości"
+    destroy:
+      thr: "Nie możesz usuwać wiadomości"
+    vote:
+      thr: "Nie możesz oddać głosu na tę wiadomość"
+    vote_up:
+      thr: "Nie możesz oddać głosu na tę wiadomość"
+    vote_down:
+      thr: "Nie możesz oddać głosu przeciw"
+    fav:
+      thr: "Nie możesz dodać tej wiadomości do ulubionych"
+    history:
+      thr: "Nie możesz oglądać historii edycji tej wiadomości"
+    report_close:
+      thr: "Nie możesz zgłaszać wiadomości do zamknięcia"
+    close:
+      thr: "Nie możesz zgłaszać wiadomości do zamknięcia"
+    report_flag:
+      thr: "Nie możesz zgłaszać wiadomości do moderatora"
+    flag:
+      thr: "Nie możesz zgłaszać wiadomości do moderatora"
+
+  activerecord:
+    models:
+      thrs: "Wiadomości"
+      thr: "wiadomość"
+    attributes:
+      thr:
+        title: "Temat"
+        content: "Szczegóły"
+        versions: "Wersja edycji"
+        tags: "Tagi"
+        tagnames: "Tagi"
+        vsummary: "Notka od edytora"
+        summary: "Notka od edytora"
+
+    errors:
+      models:
+        thr:
+          attributes:
+            vtags:
+              min_max_tags: "musi zawierać od %{min} do %{max} tagów"
+            tagnames:
+              min_max_tags: "musi zawierać od %{min} do %{max} tagów"
+              no_special_tags: "musi zawierać jeden z tagów specjalnych (%{arr})"
+
+ 
+
+  

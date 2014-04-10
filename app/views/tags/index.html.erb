@@ -1,0 +1,16 @@
+<div class="title">
+  <h1 class="left"><%= title t("activerecord.models.tags") %></h1>
+  <div class="right">
+    <%= render_navigation(:context=>:tags_sort) %>
+  </div>
+  <div class="clear"></div>
+</div>
+<%#*<div class="desc">%>
+  <%#*Tag to słowo kluczowe, które kategoryzuje twoje pytanie spośród, podobnych pytań. Przypisanie właściwych tagów ułatwia innym znalezienie i udzielenie odpowiedzi na twoje pytanie.%>
+<%#*</div>%>
+<div class="tags wide icontent">
+  <% @tags.each do |tag| %>
+    <%= tag_with_desc_schema tag.name, tag.quantity %>
+  <% end %>
+</div>
+<%= will_paginate(@tags,:params => { :format => nil }) %>

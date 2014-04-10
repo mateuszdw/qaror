@@ -1,0 +1,8 @@
+<% type = local_assigns[:type] %>
+<%= form_tag search_index_url,:method => :get, :autocomplete => :off,:class => 'search_form'+type.to_s do %>
+    <div class="search_block">
+      <%= text_field_tag 'term',nil,:class => 'search_input',:value=> sanitize(params["term"]), :placeholder=> "#{t(:search)}..." %>
+      <span class="reset" style="display:none;">&#215;</span>
+      <% submit_tag 'search', :class => 'search_submit' %>
+    </div>
+<% end %>

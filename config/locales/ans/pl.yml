@@ -1,0 +1,58 @@
+pl:
+  ans:
+
+    submit: "Odpowiadam"
+
+    index:
+    show:
+    new:
+    create:
+      saved: "Odpowiedź została opublikowana"
+    edit:
+    update:
+      saved: "Odpowiedź została zapisana"
+    destroy:
+
+    resolved: "Oznaczona jako najlepsza odpowiedź"
+    unresolved: "Oznacz jako najlepsza odpowiedź"
+
+  unauthorized:
+    read:
+      an: "Nie możesz oglądać tej odpowiedzi"
+    create:
+      an: "Nie możesz tworzyć odpowiedzi"
+    update:
+      an: "Nie możesz edytować odpowiedzi"
+    destroy:
+      an: "Nie możesz usuwac odpowiedzi"
+    vote:
+      an: "Nie możesz oddać głosu na tę odpowiedź"
+    vote_up:
+      an: "Nie możesz oddać głosu na tę odpowiedź"
+    vote_down:
+      an: "Nie możesz oddać głosu przeciw na tę odpowiedź"
+    history:
+      an: "Nie możesz oglądać historii edycji tej odpowiedzi"
+    report_flag:
+      an: "Nie możesz zgłaszać odpowiedzi do moderatora"
+    flag:
+      an: "Nie możesz zgłaszać odpowiedzi do moderatora"
+
+  activerecord:
+    models:
+      ans: "Odpowiedzi"
+      an: "Odpowiedź"
+    attributes:
+      an:
+        content: "Treść odpowiedzi"
+        versions: "Wersje edycji"
+        vsummary: "Notka od edytora"
+        summary: "Notka od edytora"
+
+    errors:
+      models:
+        an:
+          attributes:
+            base:
+              resolved: "Zaznaczyłeś już odpowiedź, która była dla Ciebie przydatna"
+              unresolved: "Nie możesz wycofać, ta odpowiedź nie była rozwiązaniem"

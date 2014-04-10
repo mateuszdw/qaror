@@ -1,0 +1,36 @@
+<% url = (action_name.include?("edit") || action_name.include?("update")) ? {} : {:url=>answer_thr_url(@thr,:anchor=>'your_answer')} %>
+<%= form_for(@an,url) do |f| %>
+  <% if action_name.include?("edit") || action_name.include?("update") %>
+    <% if @an.versions.count > 0 %>
+      <div class="field">
+          <%= label_tag 'Wersje' %>
+          <%= select_tag(:version,
+              options_for_select(@an.versions.map {|v| ["#{v.user.name} - v#{v.number} - #{l(v.created_at,:format=>:long)} #{v.summary}",v.number]},@an.version),
+            :id=> :select_version ) %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= hidden_field_tag 'an[thr_id]',@thr.id %>
+  <% end %>
+  <div class="field">
+    <%= f.text_area :content, :size=> '82x3' %>
+  </div>
+  <% if action_name.include?("edit") || action_name.include?("update") %>
+    <div class="field">
+      <%= f.label :summary %>
+      <%= f.text_field :vsummary %>
+    </div>
+  <% end %>
+  <% if cannot?(:skip_captcha,An) %>
+    <div>
+      <%= f.simple_captcha %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= flash_form_messages(:an) %>
+    <%= field_messages_for @an %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('ans.submit'), :class=>"ui_button" %>
+  </div>
+<% end %>

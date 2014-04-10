@@ -1,0 +1,100 @@
+en:
+  badges:
+    
+    famous_question:
+      name: Famous question
+      desc: You asked question that has been viewed %{value1} times
+    fanatic:
+      name: Fanatic
+      desc: You visited our website for 100 consecutive days
+    great_answer:
+      name: Great answer
+      desc: Your reply received %{value1} votes or more
+    great_question:
+      name: Great question
+      desc: Your question received %{value1} votes or more
+    stellar_question:
+      name: Stellar question
+      desc: Favorite question %{value1} users
+
+    civic_duty:
+      name: Civic duty
+      desc: You vote for questions and answers Total %{value1}
+    enthusiast:
+      name: Enthusiast
+      desc: You visited our website for %{value1} consecutive days
+    favorite_question:
+      name: Favorite question
+      desc: Favorite question %{value1} users
+    good_question:
+      name: Good question
+      desc: Your question received %{value1} votes or more
+    good_answer:
+      name: Good answer
+      desc: Your reply received %{value1} votes or more
+    notable_question:
+      name: Notable question
+      desc: You asked question that received %{value1} views
+    taxonomist:
+      name: Taxonomist
+      desc: Your tag was used %{value1} times
+    yearling:
+      name: Yearling
+      desc: From a year you are an active member and have obtained at least %{value1} reputation points
+    autobiographer:
+      name: Autobiographer
+      desc: You filled in all the fields in your profile
+    citizen_patrol:
+      name: Citizen patrol
+      desc: You have reported abuse for the first time 
+    cleanup:
+      name: Cleanup
+      desc: You withdraw post to an earlier version for first time 
+    commentator:
+      name: Commentator
+      desc: You commented %{value1} or more posts
+    critic:
+      name: Critic
+      desc: You add your first vote against
+    disciplined:
+      name: Disciplined
+      desc: You have removed your own question with amount of %{value1} or more votes
+    editor:
+      name: Editor
+      desc: You have edited post for the first time
+    nice_answer:
+      name: Nice answer
+      desc: Your answer received %{value1} votes or more
+    nice_question:
+      name: Nice question
+      desc: Your question received %{value1} votes or more
+    peer_pressure:
+      name: Peer pressure
+      desc: You have removed your own question with at least %{value1} negative votes
+    popular_question:
+      name: Popular question
+      desc: You asked question that received %{value1} views
+    scholar:
+      name: Researcher
+      desc: You asked question and accepted an answer
+    self_learner:
+      name: Student
+      desc: You asked question which has received at least %{value1} positive votes
+    supporter:
+      name: Supporter
+      desc: First vote on yes/positive vote
+    teacher:
+      name: Teacher
+      desc: Your answer received 1 or more positive votes
+      
+  activerecord:
+    models:
+      achievements: "Achievements"
+      achievement: "Achievement"
+    attributes:
+      achievement:
+        name:
+
+ 
+
+  

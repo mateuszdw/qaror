@@ -1,0 +1,3 @@
+$('#<%= @thr.class.name.downcase %>-<%= @thr.id %> .left_side .votes').replaceWith('<%= escape_javascript( 
+  render(:partial=>'shared/vote',:locals => { :object => @thr })
+) %>');

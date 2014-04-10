@@ -1,0 +1,16 @@
+<%= form_for [@commentable, @comment], :html => { :class => 'remote-submit' } do |f| %>
+  <div>
+    <div class="left">
+      <%= f.text_area :content,:size=>'70x1' %>
+    </div>
+    <div class="left" style="margin-left:5px;width:140px;">
+      <%= f.submit t(:save),:class=> 'ui_button small',:style => 'margin-top:1px;margin-bottom:2px;' %>
+      <%= link_to t(:close),'', :class=> '_close_comment ui_button small' %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div>
+    <%= field_messages_for @comment %>
+  </div>
+  
+<% end %>

@@ -1,0 +1,10 @@
+pl:
+  login:
+    title: Logowanie
+    auth_message: "Jeśli posiadasz konto w którymś z poniższych serwisów, nie musisz się rejestrować, możesz zalogować się klikając w ikonę."
+    no_account: "Nie masz konta? Jesteś jeden krok od "
+
+  login_link: "Zaloguj"
+  logout_link: "Wyloguj"
+  
+  login_error: "Nieprawidłowy login lub hasło"

@@ -1,0 +1,9 @@
+<% if current_user %>
+  <% if @subscribe %>
+    <%= t('thrs.unsubscribe.desc') %>
+    <div style="margin:5px;"><%= link_to t('thrs.subscribe.link'),subscribe_thr_url(@thr.id),:class=> 'remote-update ui_button small'  %></div>
+  <% else %>
+    <%= t('thrs.subscribe.desc') %>
+    <div style="margin:5px;"><%= link_to t('thrs.unsubscribe.link'),subscribe_thr_url(@thr.id),:class=> 'remote-update ui_button small'  %></div>
+  <% end %>
+<% end %>

@@ -1,0 +1,58 @@
+en:
+  ans:
+
+    submit: "I answer"
+
+    index:
+    show:
+    new:
+    create:
+      saved: "Answer was published"
+    edit:
+    update:
+      saved: "Answer was saved"
+    destroy:
+
+    resolved: "Marked as best answer"
+    unresolved: "Mark as best answer"
+
+  unauthorized:
+    read:
+      an: "You can't see/read/view this answer"
+    create:
+      an: "You can't create answer"
+    update:
+      an: "You can't edit answer"
+    destroy:
+      an: "You can't delete answer"
+    vote:
+      an: "You can't vote on this answer"
+    vote_up:
+      an: "You can't vote on this answer"
+    vote_down:
+      an: "You can't vote against this answer"
+    history:
+      an: "You can't watch edit history of this answer"
+    report_flag:
+      an: "You can't report answers to the moderator"
+    flag:
+      an: "You can't report answers to the moderator"
+
+  activerecord:
+    models:
+      ans: "Answers"
+      an: "Answer"
+    attributes:
+      an:
+        content: "Answer content"
+        versions: "Edit versions"
+        vsummary: "Note from the editor"
+        summary: "Note from the editor"
+
+    errors:
+      models:
+        an:
+          attributes:
+            base:
+              resolved: "You have already marked the answer which was useful for you"
+              unresolved: "It wasn't the solution, you can't go back"

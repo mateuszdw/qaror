@@ -1,0 +1,66 @@
+<%= form_for(@user) do |f| %>
+  <div class="left">
+    <div id="avatars">
+      <div id="szavatar">
+
+      </div>
+      <div id="gravatar">
+        <%= image_tag(APP_CONFIG['gravatar_url'] + Digest::MD5.hexdigest(@user.email) + "?d=identicon&s=125") %>
+        <div><%= link_to t('users.change_gravatar'),"http://pl.gravatar.com/" %></div>
+      </div>
+    </div>
+  </div>
+  <div class="left">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= link_to t('users.activation_link'),send_activation_link_user_url(@user) if @user.not_confirmed? %>
+    </div>
+    <div class="field">
+      <%= f.label :birth %><br /><br />
+      <%= f.date_select :birth, :start_year => Date.current.year, :end_year => 1920 %>
+    </div>
+    <div class="field">
+      <%= f.label :www %>
+      <%= f.text_field :www %>
+    </div>
+  </div>
+  <div class="left margin_left">
+    <div class="field">
+      <%= f.label :about %>
+      <%= f.text_area :about,:size=>'50x15' %>
+    </div>
+  </div>
+  <div class="field" style="float:right;width:421px;margin-right:18px;">
+    <%= field_messages_for @user %>
+  </div>
+  <div class="clear"></div>
+  <div>
+    <div class="title">
+      <h2><%=t 'users.subscription.title' %></h2>
+    </div>
+    <strong><%=t 'users.subscription.desc' %>:</strong>
+    <div>
+      <%= hidden_field_tag 'user_setting[notify_answers]',0 %>
+      <%= check_box_tag 'user_setting[notify_answers]',1, @user.user_setting.notify_answers==1 %>
+      <%= f.label t('users.subscription.notify_answers') %>
+    </div>
+    <div>
+      <%= hidden_field_tag 'user_setting[notify_comments]',0 %>
+      <%= check_box_tag 'user_setting[notify_comments]',1, @user.user_setting.notify_comments==1 %>
+      <%= f.label t('users.subscription.notify_comments') %>
+    </div>
+    <div>
+      <%= hidden_field_tag 'user_setting[notify_answer_resolved]',0 %>
+      <%= check_box_tag 'user_setting[notify_answer_resolved]',1, @user.user_setting.notify_answer_resolved==1 %>
+      <%= f.label t('users.subscription.notify_answer_resolved') %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit t(:save), :class=> 'ui_button' %>
+  </div>
+<% end %>

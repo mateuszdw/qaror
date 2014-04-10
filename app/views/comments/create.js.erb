@@ -1,0 +1,3 @@
+$('#<%= @commentable.class.name.downcase %>-<%= @commentable.id %>.comments .new_comment_a').show();
+$('#<%= @commentable.class.name.downcase %>-<%= @commentable.id %>.comments .new_comment').hide();
+$('#<%= @commentable.class.name.downcase %>-<%= @commentable.id %>.comments .list').replaceWith('<%= escape_javascript(render ('list') ) %>');

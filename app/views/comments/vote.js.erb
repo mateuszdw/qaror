@@ -1,0 +1,3 @@
+$('#<%= @comment.class.name.downcase %>-<%= @comment.id %> .votes').replaceWith('<%= escape_javascript(
+  render(:partial=>'shared/vote',:locals => { :object => @comment })
+) %>');

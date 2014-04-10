@@ -1,0 +1,30 @@
+<div id="main">
+  <div class="title">
+    <h2 class="left"><%= t "activerecord.models.activity" %></h2>
+    <div class="right">
+      <%= render_navigation(:context=>:admin_activities) %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div id="content">
+    <table>
+      <% @activities.each do |activity| %>
+      <tr>
+        <td><h3><%= distance_of_time_in_words_to_now(activity.created_at) %></h3></td>
+        <td><%=raw activity.user.sname %></td>
+        <td><%= activity.name_humanized %></td>
+        <td><%= activity.extra %></td>
+        <td>
+            <% if activity.activityable_type == 'Thr' %>
+              <%= link_to activity.activityable.stitle, thr_url(activity.activityable.id) %>
+            <% elsif activity.activityable_type == 'An' %>
+              <%= link_to activity.activityable.thr.stitle, thr_url(activity.activityable.thr.id,:anchor=> 'an-'+activity.activityable.id.to_s) %>
+              <% activity.activityable.content %>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    <%= will_paginate(@activities,:params => { :format => nil }) %>
+  </div>
+</div>

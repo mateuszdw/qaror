@@ -1,0 +1,33 @@
+<div id="main">
+  <div class="title">
+    <h2>Uzytkownicy</h2>
+  </div>
+  <div id="content">
+    <%= link_to 'nowy user', new_admin_user_url %>
+    <table>
+      <tr>
+        <th><%= t "activerecord.attributes.user.sname2" %></th>
+        <th><%= t "activerecord.attributes.user.email" %></th>
+        <th><%= t "activerecord.attributes.user.role" %></th>
+        <th><%= t "activerecord.attributes.user.status" %></th>
+        <th><%= t "activerecord.attributes.user.reputation" %></th>
+        <th><%= t "activerecord.attributes.user.created_at" %></th>
+        <th><%= t "activerecord.attributes.user.last_login" %></th>
+        <th colspan="2">Options</th>
+      </tr>
+      <% for user in @users %>
+        <tr>
+          <td><%=raw user.sname %></td>
+          <td><%= user.email %></td>
+          <td><%= role(user.role) %></td>
+          <td><%= status(user.status) %></td>
+          <td><%= user.reputation %></td>
+          <td><%= distance_of_time_in_words_to_now user.created_at %></td>
+          <td><%= distance_of_time_in_words_to_now user.last_login %></td>
+          <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+          <td><%= link_to 'Destroy', admin_user_path(user), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
