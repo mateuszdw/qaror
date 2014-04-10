@@ -19,7 +19,7 @@
   <div class="field">
     <%#= f.label :tagnames %>
     <div id="tags_preview"></div>
-    <%= f.text_field :tagnames,:id=>:tagit, :placeholder=> t("thrs.new.tagnames_ph",:tags=>Tag::SPECIAL_TAGS.join(', ')) %>
+    <%= f.text_field :tagnames,:id=>:tagit, :placeholder=> t("thrs.new.tagnames_ph",:min=>Tag::MIN_TAGS,:max=>Tag::MAX_TAGS) %>
   </div>
   <% if action_name.include?("edit") || action_name.include?("update") %>
     <div class="field">

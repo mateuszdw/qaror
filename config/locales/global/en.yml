@@ -243,9 +243,8 @@ en:
   search_presence: "No results. Please improve your query"
   search_not_found: "No results. Please improve your query"
 
-  answer_stored: "Your answer has been saved but not yet published. Log in to post a stored document."
-  question_stored: "Your answer has been saved but not yet published. Log in to post a stored document."
-
+  answer_stored: "Your answer has been saved but not yet published. Log in, to post a stored document."
+  question_stored: "Your question has been saved but not yet published. Log in, to post a stored document."
 
   sort:
     ans:

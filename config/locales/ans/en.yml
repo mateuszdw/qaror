@@ -1,11 +1,12 @@
 en:
   ans:
 
-    submit: "I answer"
+    submit: "Post answer"
 
     index:
     show:
     new:
+      title: "Your answer"
     create:
       saved: "Answer was published"
     edit:

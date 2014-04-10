@@ -23,7 +23,7 @@ en:
       title: "New question"
       title_ph: "Type question title"
       content_ph: "Type question content"
-      tagnames_ph: "Field can contain one or more tags. %{tags}"
+      tagnames_ph: "Field can contain from %{min} to %{max} tags"
 
     create:
       saved: "Question was published"
