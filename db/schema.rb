@@ -73,25 +73,6 @@ ActiveRecord::Schema.define(:version => 20130103193113) do
   add_index "ans", ["thr_id"], :name => "index_ans_on_thr_id"
   add_index "ans", ["user_id"], :name => "index_ans_on_user_id"
 
-  create_table "attaches", :force => true do |t|
-    t.integer  "attachable_id"
-    t.string   "attachable_type"
-    t.integer  "user_id"
-    t.string   "remote_ip"
-    t.string   "token"
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.integer  "status",              :limit => 2, :default => 0
-    t.datetime "attach_updated_at"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
-  end
-
-  add_index "attaches", ["attachable_type", "attachable_id"], :name => "index_attaches_on_attachable_type_and_attachable_id"
-  add_index "attaches", ["token"], :name => "index_attaches_on_token"
-  add_index "attaches", ["user_id"], :name => "index_attaches_on_user_id"
-
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -125,22 +106,6 @@ ActiveRecord::Schema.define(:version => 20130103193113) do
   add_index "comments", ["activity_at"], :name => "index_comments_on_activity_at"
   add_index "comments", ["commentable_type", "commentable_id"], :name => "index_comments_on_commentable_type_and_commentable_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
-    t.text     "handler"
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "impressions", :force => true do |t|
     t.integer  "impressionable_id"
