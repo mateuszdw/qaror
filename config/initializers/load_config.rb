@@ -1,5 +1,3 @@
-APP_CONFIG = YAML.load_file("#{Rails.root.to_s}/config/config.yml")[Rails.env]
-
 # load reputation
 APP_REPUTATION = YAML.load_file("#{Rails.root.to_s}/config/reputation.yml")
 
