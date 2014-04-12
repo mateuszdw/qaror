@@ -10,6 +10,7 @@ en:
     create:
       saved: "Answer was published"
     edit:
+      title: "Edit answer for question"
     update:
       saved: "Answer was saved"
     destroy:
@@ -19,7 +20,7 @@ en:
 
   unauthorized:
     read:
-      an: "You can't see/read/view this answer"
+      an: "You can't read this answer"
     create:
       an: "You can't create answer"
     update:

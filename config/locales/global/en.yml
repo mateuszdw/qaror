@@ -214,8 +214,8 @@ en:
       all: "You dont have access here"
 
   unauthorize_desc: "<div style=\"margin-top:10px;\" class=\"small_font\">
-    Prawdopodobnie masz za mało punktów reputacji by wykonać tę czynność.
-    Pokręć się troche - zapytaj, odpowiedz, zgłoś - te działania zwiększają Twoja reputacje </div>"
+    You probably have not enough reputation points to perform this operation.
+     Stick around a bit - ask, answer, report - these activities increase your reputation </div>"
 
   # Repeated actions and phreases. Unassign to any logic
   show: "Show"

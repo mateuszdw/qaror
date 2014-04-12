@@ -9,7 +9,6 @@ module ApplicationHelper
     thought.split[0..(wordcount-1)].join(" ") +(thought.split.size > wordcount ? "..." : "")
   end
 
-  # komunikat wyswietlony zostanie tylko raz na stronie
   def field_messages_for(model, attribute=nil)
     if model && attribute
       err = model.errors[attribute]
