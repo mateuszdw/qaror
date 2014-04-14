@@ -1,6 +1,8 @@
 # What is QARoR?
 It's another Questions & Answers platform for Ruby on Rails
 
+Live demo http://qaror.herokuapp.com/
+
 # Why you must try QARoR?
 
 Because it`s:
