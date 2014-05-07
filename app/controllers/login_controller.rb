@@ -3,7 +3,7 @@ class LoginController < ApplicationController
 
   authorize_resource :class => false
   protect_from_forgery :except => :failure
-  # nie uzywaj protect_from_forgery gdy request nadchodzi z omniauth
+  # if request comes from omniauth disable protect_from_forgery
   protect_from_forgery :unless => :return_url
   
   def index
@@ -37,7 +37,7 @@ class LoginController < ApplicationController
   end
 
   def failure
-    flash[:notice] = 'podany adres OpenID nie pozwala na logowanie'
+    flash[:notice] = t('users.omniauth_login_failed')
     redirect_to login_index_url
   end
 
@@ -65,34 +65,32 @@ private
     request.env['omniauth.origin']
   end
 
-  
-  # TODO do zrobienia podlaczanie kolejnych kont
   def login_with_omniauth
     omniauth = request.env["omniauth.auth"]
-    authentication = Authentication.find_by_provider_and_uid(omniauth['provider'],omniauth['uid'])
+    
+    authentication = Authentication.find_by_provider_and_uid(omniauth.provider.to_s,omniauth.uid.to_s)
     if authentication
-      # jesli uid juz istnieje loguje odrazu
-      # login_user_and_redirect sprawdza czy uzytkownik nie jest przypadkiem zablokowany albo cos
+      # if uid exists log in instantly
+      # login_user_and_redirect check if user is login, is active and not blocked
       login_user_and_redirect(authentication.user)
-      p "uid jest ok - loguje"
 
+#    TODO do zrobienia podlaczanie kolejnych kont
 #    elsif current_user
 #      current_user.authentications.create!(:provider=> omniauth['provider'], :uid => omniauth['uid'])
 #      flash[:notice] = "podpiecie dodatkowego konta"
 #      redirect_to return_url
     else
-      # jesli uid nie istnieje sprawdzam czy dany email byl już uzyty
-      # zapisuje dane z uid
-      # login_user_and_redirect sprawdza czy uzytkownik nie jest przypadkiem zablokowany albo cos
-      if user = User.find_by_email(omniauth['user_info']['email'])
-        p "email jest ok - loguje"
-        user.authentications.build(:provider=> omniauth['provider'], :uid => omniauth['uid'])
+      
+      # if uid not exists check if email already used
+      # login_user_and_redirect check if user is login, is active and not blocked
+      if user = User.find_by_email(omniauth.info.email)
+        user.authentications.build(:provider=> omniauth.provider, :uid => omniauth.uid)
         login_user_and_redirect(user)
       else
         user = User.new
-        user.authentications.build(:provider=> omniauth['provider'], :uid => omniauth['uid'])
-        user.name = User.generate_name_if_short_or_used(omniauth['user_info']['name'])
-        user.email = omniauth['user_info']['email']
+        user.authentications.build(:provider=> omniauth.provider, :uid => omniauth.uid)
+        user.name = User.generate_name_if_short_or_used(omniauth.info.name)
+        user.email = omniauth.info.email
         pass = SecureRandom.hex(12)
         user.password = pass
         user.password_confirmation = pass
@@ -100,12 +98,11 @@ private
         user.role = User::ROLE_USER
         user.remind_token = 1
         if user.save
-          p "tworze nowe konto, nie bylo emaila ani uid"
-          flash[:notice] = t('users.successfully_created') + omniauth['user_info']['email']
+#          p "create new account, no email and uid in database"
+          flash[:notice] = t('users.successfully_created') + omniauth.info.email
           login_user_and_redirect(user,return_url)
         else
-          flash[:notice] = "Tworzenie konta przy użyciu #{omniauth['user_info']['email']} nie powiodło się.
-Utwórz konto w tradycyjny sposób klikajac w przycisk Zarejestruj się na stronie logowania."
+          flash[:notice] = t('users.omniauth_login_failed')
           redirect_to return_url
         end
       end

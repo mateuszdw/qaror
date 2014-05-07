@@ -14,6 +14,7 @@ en:
     new: "Sign in"
     successfully_created: "Created new account using "
     successfully_activated: "Thank you for confirming your email address. You can now use all the features of the site."
+    omniauth_login_failed: "Creating account using this service - failed. Sign in using different service account or register in traditional way."
     send_to_email: "Send email"
     email_not_exists_or_blocked: "Account with this email address doesn't exist or is blocked."
     remind_password: "I forgot my password!"
