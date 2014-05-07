@@ -1,6 +1,10 @@
 # What is QARoR?
 It's another Questions & Answers platform for Ruby on Rails
 
+If existing opensource QA clones scares you, try use this. It\`s created in Ruby on Rails of most common gems and clean solutions. No need complicated external libraries. It\`s saves time and help to quickly start talk with your community. And yes I agree, it needs some finishing touches. 
+
+Live demo http://qaror.herokuapp.com/
+
 # Why you must try QARoR?
 
 Because it`s:
