@@ -17,4 +17,13 @@ class PagesController < ApplicationController
     render :action => "show"
   end
 
+  def privileges
+    @privilege = APP_PRIVILEGES.inject([]) do |a,(k,v)|
+      a << {:symbol=>k,:title=>v['title'],:desc=>v['desc'],:value=>v['value']}
+      a
+    end
+    @privilege = @privilege.sort_by {|v| -v[:value]}
+    @reputation = APP_REPUTATION.inject({}){|h,(k,v)| h[k.to_sym] = v; h}
+  end
+
 end

@@ -220,6 +220,10 @@ class UsersController < ApplicationController
     @user = User.active.find(params[:id])
   end
 
+  def reputation
+    @user = User.active.find(params[:id])
+  end
+
   def votes
     @user = User.active.find(params[:id])
   end

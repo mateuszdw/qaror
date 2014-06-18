@@ -26,9 +26,18 @@ en:
       tagnames_ph: "Field can contain from %{min} to %{max} tags"
 
     create:
-      saved: "Question was published"
+      saved: "Question published"
 
     edit:
+      when_title: "When edit question"
+      when_content: "Edit this question only if the text contains inaccurate or false information.
+         You'll find a bug or have additional information on the chosen topic.
+         The question contains the word offensive or insulting someone"
+      tag_content: "Pay attention to the field tags, if they are not precise enough, put there your suggestion.
+      Field can contain from %{min} to %{max} tags."
+      version_and_note_title: "Versioning and note from the editor"
+      version_and_note_content: "All changes in questions and responses can be restored using the select box \"Available versions\".
+         Try to specify others what you have changed filling \"Note from the editor\"."
     update:
       saved: "Question saved"
     destroy:  
@@ -69,7 +78,7 @@ en:
       thr:
         title: "Subject"
         content: "Details"
-        versions: "Edit versions"
+        versions: "Available versions"
         tags: "Tags"
         tagnames: "Tags"
         vsummary: "Note from the editor"

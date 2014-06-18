@@ -1,10 +1,8 @@
 # encoding: utf-8
-
 class Thr < ActiveRecord::Base
   extend FriendlyId
 
-  has_paper_trail :only => [:title,:content,:tagnames], :on=> [:update],
-  :meta => {
+  has_paper_trail :only => [:title,:content,:tagnames], :on=> [:update], :meta => {
     :user_id  => Proc.new { |m| m.updated_by.id },
     :summary  => Proc.new { |m| m.vsummary if m.changed? && !m.vsummary.blank? }
   }

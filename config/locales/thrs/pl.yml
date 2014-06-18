@@ -2,11 +2,26 @@ pl:
   thrs:
     index:
     show:
+      details: "Question details"
+      interesting: "Subscribe"
+      related: "Related questions"
     new:
       title: "Nowa wiadomość"
+      title_ph: "Type question title"
+      content_ph: "Type question content"
+      tagnames_ph: "Field can contain from %{min} to %{max} tags"
     create:
       saved: "Wiadomość została opublikowana"
     edit:
+      when_title: "Kiedy edytować pytanie"
+      when_content: "Edytuj pytanie tylko wtedy gdy tekst zawiera informacje nieprecyzyjną lub nieprawdziwą.
+        Znajdziesz błąd lub masz dodatkowe informacje na wybrany temat.
+        Pytanie zawiera słowa niecenzuralne lub kogoś obraża"
+      tag_content: "Zwróć uwagę na pole tagi, jeśli są one mało precyzyjne, umieść tam swoją propozycję.
+      Dodaj od %{min} do %{max} tagów odzielonych spacją"
+      version_and_note_title: "Wycofanie do wersji wcześniejszej i notka od edytora"
+      version_and_note_content: "Wszystkie zmiany w postach i odpowiedziach można przywrócić w za pomocą pola wyboru \"wersja edycji\".
+        Staraj sie poinformować innych jakie naniosłeś zmiany i wypełnij pole \"Notka od edytora\""
     update:
       saved: "Wiadomość została zapisana"
     destroy:  

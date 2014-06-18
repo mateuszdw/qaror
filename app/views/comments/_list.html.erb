@@ -4,7 +4,7 @@
       <% if can? :edit, comment %>
         <span class="comment_options">
           <%#*send(:"edit_#{comment.commentable.class.name.downcase}comment_url",1,2)%>
-          &nbsp;<%= link_to t(:edit), edit_comment_url(comment),:id=>'edit_comment',:class=>'small_font' %> |
+          <%= link_to t(:edit), edit_comment_url(comment),:id=>'edit_comment',:class=>'small_font' %> |
           <%= link_to t(:destroy), comment, :class=> '_confirm-remote-delete small_font',"data-confirmation" => 'czy chcesz usunac komentarz ?' %>
         </span>
       <% end %>

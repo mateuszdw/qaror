@@ -133,13 +133,8 @@ private
     thr.last_activity_id = id
     set_activity_for(thr)
 
-    # jesli byly jakies zmiany aktywnosci w pytaniu od czasu ostatniej wizyty
-    # to wysylam wszystkim zapisanym na liscie subskrypcji
-
-    # mozna opoznic troche mailera (2 - 5min), by oszczedzic na niepotrzebych aktywnosciach
-    # ktore odbiorca moze tak czy siak zobaczyc odswiezajac strone
-    # wykonac w delay jobie zapytanie o nowe subskrybcje. Delayed job bedzie tworzony w tej metodzie
-
+    # if there was activity in thr since last visit send to all subscribers except activity caller
+    # REMEBER! to check the last_view field when using delayed_job or resque background job
     if subscriptions = Subscription.joins(:subscribable_thr).
       where("subscriptions.user_id <> ? AND thrs.id=?",user_id,thr.id).
       where("subscriptions.last_view < thrs.activity_at")

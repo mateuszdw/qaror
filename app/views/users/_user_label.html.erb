@@ -9,8 +9,8 @@
   </div>
 <% else %>
   <div class="user_ls">
-    <div class="name"><%= link_to raw(@user.name),@user %></div>
-    <span class="reputation"><%= @user.reputation %></span>
+    <div class="name"><%= link_to raw(@user.sname),@user %></div>
+    <span class="reputation"><%= link_to @user.reputation, votes_user_path(@user) %></span>
   </div>
 <% end %>
 

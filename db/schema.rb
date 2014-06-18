@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103193113) do
+ActiveRecord::Schema.define(:version => 20140530201929) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "user_id"
@@ -230,8 +230,10 @@ ActiveRecord::Schema.define(:version => 20130103193113) do
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
     t.string   "apikey"
+    t.string   "avatar_url"
   end
 
+  add_index "users", ["avatar_url"], :name => "index_users_on_avatar_url"
   add_index "users", ["created_at"], :name => "index_users_on_created_at"
 
   create_table "versions", :force => true do |t|

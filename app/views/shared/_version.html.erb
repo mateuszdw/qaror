@@ -1,7 +1,7 @@
 <div id="version-<%= version.number %>" class="history">
   <div class="number">
     <h1 id="versions_toggle" class="left"><%= version.number %></h1>
-    <div class="left"><%= 'wersja aktualna' if (@versions.first.number) > version.number %></div>
+    <div class="left"><%= t(:current) if (@versions.first.number) > version.number %></div>
     <div class="author right"><%= user_label(version.user) %></div>
     <div class="clear"></div>
   </div>

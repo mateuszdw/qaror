@@ -24,7 +24,7 @@
       <% end %>
       <div class="an_content">
         <% cache("ans/#{an.id}/an_content") do %>
-          <%= an.content %>
+          <%=simple_format h(an.content) %>
         <% end %>
       </div>
       <div class="content_bottom">

@@ -98,7 +98,7 @@ class CommentsController < ApplicationController
     @comment.mark_as_destroy
 
     respond_to do |format|
-      format.html { redirect_to(comments_url) }
+#      format.html { redirect_to(comments_url) }
       format.js {
         @comments = @commentable.comments.active
       }

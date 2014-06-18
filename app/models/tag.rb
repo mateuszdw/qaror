@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   STATUS_ACTIVE = 1
   MIN_TAGS = 3
   MAX_TAGS = 5
-  SPECIAL_TAGS = %w{sugestia błąd pytanie}
+  SPECIAL_TAGS = %w{suggest bug question}
 
 
   has_many :tag_rels, :dependent => :destroy
@@ -45,9 +45,9 @@ class Tag < ActiveRecord::Base
   end
 
   def check_reputation
-#    narazie wszyscy moga dodawac tagi
+#    right now all users can add tags
 #    unless self.user.is_moderator? || self.user.is_admin? || self.user.reputation > 1500
-#      errors.add(:name,"jeszcze nie istnieje. Masz za mało reputacji by dodawać nowe tagi. ")
+#      errors.add(:name,"not exist yet. You have not enough reputation points to perform this operation.")
 #    end
   end
 

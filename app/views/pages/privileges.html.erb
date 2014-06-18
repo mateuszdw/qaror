@@ -1,0 +1,62 @@
+<div class="lcontent">
+  <div class="title">
+    <h2>Privileges</h2>
+    <div class="clear"></div>
+  </div>
+
+  Special privileges are granted for being an active member of the community. <br/> <br/>
+
+  <table>
+    <% @privilege.each do |priv| %>
+      <% priv_active = (current_user && (priv[:value].to_i > current_user.reputation)) || !current_user %>
+      <tr class="<%= 'inactive' if priv_active %>">
+        <td><%= image_tag('/assets/content/accept.png') if !priv_active %></td>
+        <td><%= priv[:value] %></td>
+        <td><strong><%= priv[:title] %></strong></td>
+        <td><%= priv[:desc] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div class="rhelper">
+  <div class="block">
+    <div class="title"><h3>Privileges</h3></div>
+    <div class="bdesc">These special privileges are granted to say thanks for being a great user.</div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="lcontent">
+  <div class="title">
+    <h2>Reputation counting</h2>
+    <div class="clear"></div>
+  </div>
+  <p>
+The primary way to gain reputation is by posting good questions and useful answers.
+Votes on these posts cause you to gain (or sometimes lose) reputation.
+  </p>
+  <p>
+You can earn a maximum of <%= @reputation[:max_rep_by_up_votes] %> reputation per day from any combination of the activities below.
+  </p>
+  <br />
+  <p><strong>You gain reputation when:</strong></p>
+  <ul>
+    <li>question is voted up: <%= @reputation[:thr_receives_up_vote] %></li>
+    <li>answer is voted up: <%= @reputation[:an_receives_up_vote] %></li>
+    <li>answer marked as best: <%= @reputation[:receives_an_resolved] %> (<%= @reputation[:an_resolved] %> to acceptor)</li>
+  </ul>
+  <br />
+  <p><strong>You lose reputation when:</strong></p>
+  <ul>
+    <li>your question is voted down: <%= @reputation[:thr_receives_down_vote] %></li>
+    <li>your answer is voted down: <%= @reputation[:an_receives_down_vote] %></li>
+    <li>you vote down an answer: <%= @reputation[:vote_down_an] %> </li>
+    <li>your post is flagged: <%= @reputation[:flag] %></li>
+  </ul>
+</div>
+<div class="rhelper">
+  <div class="block">
+    <div class="title"><h3>Reputation info</h3></div>
+    <div class="bdesc">Reputation is a rough measurement of how much the community trusts you</div>
+  </div>
+</div>
+<div class="clear"></div>

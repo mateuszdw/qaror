@@ -1,16 +1,14 @@
 <%= form_for(@user) do |f| %>
-  <div class="left">
+<div class="row show-grid">
+  <div class="col-md-3">
     <div id="avatars">
-      <div id="szavatar">
-
-      </div>
       <div id="gravatar">
         <%= image_tag(APP_CONFIG['gravatar_url'] + Digest::MD5.hexdigest(@user.email) + "?d=identicon&s=125") %>
         <div><%= link_to t('users.change_gravatar'),"http://pl.gravatar.com/" %></div>
       </div>
     </div>
   </div>
-  <div class="left">
+  <div class="col-md-4">
     <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -21,7 +19,7 @@
       <%= link_to t('users.activation_link'),send_activation_link_user_url(@user) if @user.not_confirmed? %>
     </div>
     <div class="field">
-      <%= f.label :birth %><br /><br />
+      <%= f.label :birth %>
       <%= f.date_select :birth, :start_year => Date.current.year, :end_year => 1920 %>
     </div>
     <div class="field">
@@ -29,7 +27,7 @@
       <%= f.text_field :www %>
     </div>
   </div>
-  <div class="left margin_left">
+  <div class="col-md-5">
     <div class="field">
       <%= f.label :about %>
       <%= f.text_area :about,:size=>'50x15' %>
@@ -63,4 +61,5 @@
   <div class="actions">
     <%= f.submit t(:save), :class=> 'ui_button' %>
   </div>
+</div>
 <% end %>

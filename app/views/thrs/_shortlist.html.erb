@@ -8,11 +8,6 @@
         <div class="votes"><%= thr.ans.count %></div>
         <div class="thr_subtitle"><%= t("activerecord.models.ans") %></div>
       </div>
-      <% if thr.attaches.first && thr.attaches.first.thumbnailable? %>
-        <div class="left">
-          <%= image_tag thr.attaches.first.attach.url(:small) %>
-        </div>
-      <% end %>
       <div class="left" style="margin-left:5px;">
         <h2><%= link_to thr.stitle, thr %></h2>
         <div>

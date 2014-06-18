@@ -44,7 +44,7 @@
         <% end %>
         <div class="thr_content">
           <% cache("thrs/#{@thr.id}/thr_content") do %>
-            <%= @thr.content %>
+            <%=simple_format h(@thr.content) %>
           <% end %>
         </div>
         <div class="content_bottom">

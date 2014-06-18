@@ -6,7 +6,7 @@
   <div class="clear"></div>
 </div>
 <div id="content">
-  <table id="activity_table">
+  <table>
     <% @activities.each do |activity| %>
       <tr>
         <td><h3><%= distance_of_time_in_words_to_now(activity.created_at) %></h3></td>

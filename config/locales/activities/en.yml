@@ -22,12 +22,12 @@ en:
       flag_an: report
       resolved_an: marked best answer
       # glosy
-      vote_up_thr: vote for yes
-      vote_down_thr: vote for no
-      vote_up_an: vote for yes
-      vote_down_an: vote for no
-      vote_up_comment: vote for yes
-      vote_down_comment: vote for no
+      vote_up_thr: upvote
+      vote_down_thr: downvote
+      vote_up_an: upvote
+      vote_down_an: downvote
+      vote_up_comment: upvote
+      vote_down_comment: downvote
 
   activerecord:
     models:

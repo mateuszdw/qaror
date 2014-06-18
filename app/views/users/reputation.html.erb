@@ -6,12 +6,12 @@
   <div class="clear"></div>
 </div>
 <div class="summary">
-  <em><%= @user.votes_points.count %></em>
-  <%=t 'sort.user_tabs.votes' %>
+  <em><%= @user.reputation %></em>
+  <%=t 'sort.user_tabs.reputation' %>
 </div>
 <div id="content">
   <table>
-    <% @user.votes_points.each do |activity_point| %>
+    <% @user.reputation_points.each do |activity_point| %>
       <tr>
         <td>
           <% avalue = activity_point.value %>

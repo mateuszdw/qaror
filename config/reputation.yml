@@ -1,32 +1,3 @@
-ability:
-  flag_voteup:
-    desc: "vote up and flag posts"
-    value: 0
-  leave_comments:
-    desc: "leave comments for all questions and answers. You can always leave comments under your questions and answers"
-    value: 5
-  votedown:
-    desc: "vote down"
-    value: 10
-  reduceads:
-    desc: "reduce ads"
-    value: 200
-  voteclose:
-    desc: "vote for close question"
-    value: 250
-  retag_reopen:
-    desc: "retag questions and vote for open questions"
-    value: 500
-  votetotal:
-    desc: "view votes details"
-    value: 1000
-  createtags:
-    desc: "create new tags"
-    value: 1500
-  editposts:
-    desc: "edit posts"
-    value: 2000
-
 max_rep_by_up_votes:             200
 
 confirm_email:                   10

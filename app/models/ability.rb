@@ -7,7 +7,7 @@ class Ability
     #
     #guest
     #
-    can [:index,:show,:new,:create,:remind_password,:remind_password_edit,:change_password_edit,:change_password,:activate,:activity,:votes,:favorites,:ako], :user #registration
+    can [:index,:show,:new,:create,:remind_password,:remind_password_edit,:change_password_edit,:change_password,:activate,:activity,:reputation,:favorites,:ako], :user #registration
     can [:index,:create,:failure], :login
 
     can [:index,:show,:new,:create,:vote,:answer], Thr
@@ -22,7 +22,8 @@ class Ability
       can [:logout], :login
 
       cannot [:new,:create,:remind_password,:remind_password_edit], :user
-      can [:index,:show,:update,:edit,:activate,:send_activation_link,:activity,:votes,:favorites,:ako], :user
+
+      can [:index,:show,:update,:edit,:activate,:send_activation_link,:activity,:votes,:favorites,:votes,:ako], :user
 
       can [:index,:show,:new,:create,:fav,:vote,:subscribe,:answer], Thr
       can [:edit,:update,:destroy],Thr do |thr| thr.user == user end
@@ -57,7 +58,7 @@ class Ability
       end
 
       # Vote up # Flag for moderator attention
-      if user.reputation >= APP_REPUTATION['ability']['flag_voteup']['value'] || user.is_moderator? || user.is_admin?
+      if user.reputation >= APP_PRIVILEGES['flag_voteup']['value'] || user.is_moderator? || user.is_admin?
         can [:report_flag,:flag], Thr do |thr| thr.user != user end
         can [:report_flag,:flag], An do |an| an.user != user end
         can [:vote_up], Thr
@@ -66,41 +67,41 @@ class Ability
       end
       
       # Leave comments # you can always comment on your questions and answers, and any answers to questions you’ve asked, even with 1 rep.
-      if user.reputation > APP_REPUTATION['ability']['leave_comments']['value'] || user.is_moderator? || user.is_admin?
+      if user.reputation > APP_PRIVILEGES['leave_comments']['value'] || user.is_moderator? || user.is_admin?
         can [:new,:create,:edit,:update],Comment
       end
 
-      if user.reputation > APP_REPUTATION['ability']['votedown']['value'] || user.is_moderator? || user.is_admin? # Vote down, Edit community wiki posts
+      if user.reputation > APP_PRIVILEGES['votedown']['value'] || user.is_moderator? || user.is_admin? # Vote down, Edit community wiki posts
         can [:vote_down], Thr
         can [:vote_down], An
       end
 
-      if user.reputation > APP_REPUTATION['ability']['reduceads']['value'] # Reduced advertising
+      if user.reputation > APP_PRIVILEGES['reduceads']['value'] # Reduced advertising
       end
 
       # Vote to close, vote toreopen, or migrate your questions
-      if user.reputation > APP_REPUTATION['ability']['voteclose']['value'] || user.is_moderator? || user.is_admin?
+      if user.reputation > APP_PRIVILEGES['voteclose']['value'] || user.is_moderator? || user.is_admin?
         can [:report_close,:close], Thr
       end
 
       # Retag questions # can reopen questions
-      if user.reputation > APP_REPUTATION['ability']['retag_reopen']['value'] || user.is_moderator? || user.is_admin?
+      if user.reputation > APP_PRIVILEGES['retag_reopen']['value'] || user.is_moderator? || user.is_admin?
         can [:retag,:reopen], Thr
       end
       
       # 	Show total up and down vote counts
-      if user.reputation > APP_REPUTATION['ability']['votetotal']['value'] || user.is_admin?
+      if user.reputation > APP_PRIVILEGES['votetotal']['value'] || user.is_admin?
         can [:vote_total], Thr
         can [:vote_total], An
       end
 
       # 	Create new tags
-      if user.reputation > APP_REPUTATION['ability']['createtags']['value'] || user.is_moderator? || user.is_admin?
-        # bedzie w modelu do czasu cancan 2.0
+      if user.reputation > APP_PRIVILEGES['createtags']['value'] || user.is_moderator? || user.is_admin?
+        can :create, Tag
       end
 
       # 	Edit other people’s posts, vote to approve or reject suggested edits
-      if user.reputation > APP_REPUTATION['ability']['editposts']['value'] || user.is_moderator? || user.is_admin?
+      if user.reputation > APP_PRIVILEGES['editposts']['value'] || user.is_moderator? || user.is_admin?
         can [:edit,:update], Thr
         can [:edit,:update], An
       end

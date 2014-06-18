@@ -5,22 +5,25 @@
   </div>
   <div class="clear"></div>
 </div>
+<div class="summary">
+  <em><%= @user.activities.public_activities.count %></em>
+  <%=t 'sort.user_tabs.activity' %>
+</div>
 <div id="content">
-  <table id="activity_table">
+  <table>
     <% @user.activities.public_activities.order("created_at desc").each do |activity| %>
       <tr>
         <td><h2 class="grey_font"><%= distance_of_time_in_words_to_now(activity.created_at) %></h2></td>
         <td><%= activity.name_humanized %></td>
         <td>
             <% if activity.activityable_type == 'Thr' %>
-              <%= link_to activity.activityable.stitle, thr_url(activity.activityable.id) %>
+              <strong><%= link_to activity.activityable.stitle, thr_url(activity.activityable.id) %></strong>
             <% elsif activity.activityable_type == 'An' %>
-              <%= link_to activity.activityable.thr.stitle, thr_url(activity.activityable.thr.id,:anchor=> 'an-'+activity.activityable.id.to_s) %>
+              <strong><%= link_to activity.activityable.thr.stitle, thr_url(activity.activityable.thr.id,:anchor=> 'an-'+activity.activityable.id.to_s) %></strong>
             <% elsif activity.activityable_type == 'Comment' %>
-              <%= activity.activityable.content %>
+              <strong><%= activity.activityable.content %></strong>
             <% elsif activity.achievement %>
               <%= achievement_schema(activity.achievement.badge) %>
-
               <% activity.activityable.stitle if activity.activityable %>
             <% end %>
         </td>

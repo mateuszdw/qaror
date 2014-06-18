@@ -39,22 +39,4 @@ module ApplicationHelper
     raw "<span class=\"sortable\" > #{link} </span>"
   end
 
-  def attaches_form
-    @attach =  Attach.new
-    render 'attaches/form'
-  end
-
-  def attaches_lib(thr=nil)
-    if thr && current_user
-      @attaches = Attach.where(:user_id=>current_user.id).
-        where({:status=> Attach::STATUS_NOTASSIGN}).
-        order("created_at desc")
-    elsif current_user
-      @attaches = Attach.where(:user_id=>current_user.id,:status=> Attach::STATUS_NOTASSIGN).order("created_at desc")
-    else
-      @attaches = []
-    end
-    render 'attaches/lib'
-  end
-
 end

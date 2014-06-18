@@ -4,7 +4,7 @@
       <div class="field">
         <%= label_tag t("activerecord.attributes.thr.versions") %> &nbsp;
         <%= select_tag(:version,
-            options_for_select(@thr.versions.map {|v| ["#{v.index} #{v.user.name} - #{l(v.created_at,:format=>:long)} - #{v.summary}",v.index]}.insert((@thr.versions.count),["-- aktualna --",@thr.versions.count]),@current_version),
+            options_for_select(@thr.versions.map {|v| ["#{v.index} #{v.user.name} - #{l(v.created_at,:format=>:long)} - #{v.summary}",v.index]}.insert((@thr.versions.count),["-- #{t(:current)} --",@thr.versions.count]),@current_version),
           :id=> :select_version ) %>
       </div>
     <% end %>

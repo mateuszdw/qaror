@@ -14,7 +14,7 @@ body {
     background:#eeeeee;
 }
 
-small, .small_font {font-size: 13px;}
+.small_font {font-size: 13px;}
 .grey_font {color:#AAAAAA;}
 strong,b {font-weight:bold; }
 h1{
@@ -39,8 +39,6 @@ i,em { font-style: italic; }
 u { text-decoration: underline; }
 form {width:100%}
 
-.sepy { background-color:#FFF4AC;height:4px}
-.sep { background-color:#CDCDCD;height:1px}
 .left { float:left;}
 .right { float:right;}
 .margin_left { margin-left:20px; }
@@ -55,18 +53,6 @@ form {width:100%}
     visibility: hidden;
     width: 0;
 }
-.note {
-  background-color: #8D220F;
-  border: 1px solid #C03518;
-  padding: 3px;
-  margin-top:5px;
-  margin-bottom:10px;
-  color:#FFFFFF;
-}
-
-.rank{color:#AAAAAA;width:100px;font-size: 50px;text-align:center;}
-.koment td{font-size: 10px;}
-.koment a{font-size: 10px;}
 
 ins.differ {
     background-color:#D1E1AD;
@@ -79,30 +65,50 @@ del.differ {
     text-decoration: line-through;
 }
 
-form .form_error {
-    padding:3px;
-    color:#FFFFFF;
-    background-color: #C03518;
-    border: 2px solid #8D220F;
-    text-align:center;
-}
-
 a {color: #171717; text-decoration:none}
 a:hover	{text-decoration: none; }
 
-.ui_button  {
-    font: 16px Helvetica ,serif,sans-serif;
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
+table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th,
+table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td {
+    border-top: 1px solid #DDDDDD;
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: middle;
+}
+
+table th{
+     border: 1px solid #AAAAAA;
+     background-color: #666666;
+}
+
+table tr.inactive{
+     color:#888;
+}
+
+table td{
+     border-bottom: 1px solid #DDDDDD;
+}
+
+.ui_button  {
+    font-family: Tahoma,Arial,Verdana,sans-serif;
+    font-size: 16px;
+    
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     box-shadow: 0 0 1px #222222;
     
     cursor:pointer;
     padding:5px 20px;
-    vertical-align:middle;
+    
     white-space:nowrap;
     overflow:hidden;
     text-overflow: ellipsis;
+    text-align:center;
 }
 
 .ui_button:hover {
@@ -113,7 +119,8 @@ a:hover	{text-decoration: none; }
 a.ui_button {
     text-decoration: none;
     display:inline-block;
-    padding: 5px 23px;
+    vertical-align:middle;
+    padding: 6px 23px;
 }
 
 .ui_button.green  {
@@ -124,7 +131,6 @@ a.ui_button {
 .ui_button.small  {
     font: 12px Helvetica ,serif,sans-serif;
     padding:3px 15px;
-/*    line-height: 28px;*/
 }
 
 a.ui_button.small {
@@ -157,21 +163,8 @@ a.ui_button.small {
     font-size:26px;
 }
 
-#header .site_desc {
-    font-size:14px;
-    color:#EEEEEE;
-}
-
-.user_stuff a{
+.user_stuff > a{
     margin-right:5px;
-}
-
-.user_stuff a.notsoimportant {
-    color:#dddddd;
-}
-
-.user_stuff .block {
-    text-align:right;
 }
 
 #site {
@@ -194,7 +187,7 @@ a.ui_button.small {
     line-height: 40px;
     margin-left: auto;
     margin-right: auto;
-    width: 970px;
+    width: 1000px;
     padding:0px 15px;
 }
 
@@ -206,34 +199,7 @@ a.ui_button.small {
     color:#111111;
 }
 
-
-#logo.left{
-    height:80px;
-    width:300px;
-}
-
-#logo.left a {
-    display:block;
-    margin-top:10px;
-}
-
-#top_menu {
-    float:right;
-    height:30px;
-    line-height:30px;
-    display: block;
-    font-size:11px;
-    color:#7E9159;
-    padding:0px;
-    white-space:nowrap;
-    margin:2px;
-}
-
-li#login a {
-    font-weight: bold;
-}
-
-#menu {
+/*#menu {
     margin-top:10px;
     height:42px;
     line-height:40px;
@@ -243,7 +209,7 @@ li#login a {
     padding:0px;
     white-space:nowrap;
     float:right;
-}
+}*/
 
 #menu li, #bottom_menu li, #top_menu li {
    margin-left:5px;
@@ -252,11 +218,7 @@ li#login a {
    float:left;
 }
 
-#top_menu li {
-    padding:0px 3px;
-}
-
-#menu a {
+/*#menu a {
     cursor:pointer;
     font-size: 18px;
 }
@@ -267,15 +229,7 @@ li#login a {
 
 #menu li.selected {
    border-bottom:2px solid #171717;
-}
-
-#menu_user {
-    
-}
-
-#menu_user a {
-    font-size: 10px;
-}
+}*/
 
 /* WSPOLNE STYLE */
 
@@ -324,12 +278,6 @@ li#login a {
     text-align:center;
 }
 
-.flash_window .icon {
-    float:left;
-    padding:0px 22px;
-    padding-top:15px;
-}
-
 .flash_window .actions {
     clear:both;
 }
@@ -341,10 +289,6 @@ li#login a {
 .flash_window .content {
     padding:20px 20px;
     font-size:18px;
-}
-
-#flash_report {
-    padding-top:20px;
 }
 
 /* forms */
@@ -359,14 +303,24 @@ li#login a {
 }
 
 .field label {
-/*    font-size: 15px;*/
     height: 26px;
     line-height: 24px;
+    color:#444444;
 }
 
 .field label.textarea {
     float: none;
     margin-bottom:15px;
+}
+
+/* main error style */
+
+form .form_error {
+    padding:3px;
+    color:#FFFFFF;
+    background-color: #C03518;
+    border: 2px solid #8D220F;
+    text-align:center;
 }
 
 /* FORM BUTTONS */
@@ -410,11 +364,12 @@ form .actions {
     -moz-border-radius:5px 5px 5px 5px;
     border-radius:5px 5px 5px 5px;
 
-    width:98%;
+    width:100%;
     padding:8px 6px;
     border:2px solid #AAAAAA;
     font-size:15px;
     background-color:#FFFFFF;
+    margin:0;
 }
 
 .field textarea,.new_comment textarea{
@@ -433,7 +388,8 @@ form .actions {
     font-size:15px;
     padding:6px 2px;
     background-color:#FFFFFF;
-    width:99%;
+    width:100%;
+    margin:0;
 }
 
 .field input.default_checkbox {
@@ -455,11 +411,6 @@ form .actions {
     float: none;
 }
 
-form .actions a.ui_button {
-/*    float:right;*/
-}
-
-
 .left {
     float:left;
 }
@@ -476,7 +427,7 @@ form .actions a.ui_button {
     	clear:both;
 }
 
-.light_sep {
+/*.light_sep {
     margin-top:3px;
     margin-bottom:3px;
     height:1px;
@@ -494,7 +445,7 @@ form .actions a.ui_button {
     border-top:1px dotted #ccc;
     height:1px;
     clear:both;
-}
+}*/
 
 .plus {color:#7E9159;}
 .minus {color:#8D220F;}
@@ -559,6 +510,7 @@ form .actions a.ui_button {
     color:#AAAAAA;
 }
 
+table .achievement { margin-bottom:0px;}
 .achievement { margin-bottom:5px; display: inline-block;}
 
 .achievement span.bg {
@@ -642,22 +594,22 @@ form .actions a.ui_button {
 }
 
 #site .top {
-    width:700px;
+    width:755px;
     padding:0px 20px;
     padding-top:20px;
 }
 
 .top a.ui_button {
     width:300px;
-    text-align:center;
-    font-size:18px;
-    padding: 5px 23px;
+    font-size:19px;
 }
 
 .top .search_form {
+    display:inline-block;
+    vertical-align: top;
     width:320px;
     padding: 0px;
-    float:right;
+    margin-left:40px;
 }
 
 #site .desc {
@@ -789,8 +741,6 @@ form .actions a.ui_button {
     margin-bottom:6px;
 }
 
-/* STRONA GLOWNA */
-
 #tight {
     width:500px;
     margin-left: auto;
@@ -801,8 +751,13 @@ form .actions a.ui_button {
     padding:0px 20px
 }
 
-.rhelper .related {
-    margin-bottom:10px;
+/* question template */
+
+#site #thrs.small .thr h2 {
+    width:auto;
+}
+#thrs.small .thr .sneak {
+    width:auto;
 }
 
 #thr .left_side {
@@ -827,12 +782,6 @@ form .actions a.ui_button {
     min-height:90px;
 }
 
-#thr .content_attaches {
-    border-top:1px dashed #DDDDDD;
-    margin-top:10px;
-    padding-top:5px;
-}
-
 #thr .content_bottom {
     margin-top:10px;
     margin-bottom:10px;
@@ -841,6 +790,8 @@ form .actions a.ui_button {
 #thrs .tags {
     margin-left:0px;
 }
+
+/* QUESTIONS AS SEARCH RESULTS */
 
 #fast_search_results {
     display:none;
@@ -861,7 +812,7 @@ form .actions a.ui_button {
 #thrs .thr,#fast_search_results .thr {
     display:block;
     padding:2px;
-    padding-bottom:10px;
+    padding-bottom:5px;
     margin-bottom:10px;
     border-bottom:1px solid #AAAAAA;
 }
@@ -869,6 +820,8 @@ form .actions a.ui_button {
 #thrs .thr.last,#fast_search_results .thr.last {
     border-bottom:0px;
 }
+
+/* QUESTIONS NORMAL SIZE */
 
 #thrs .thr .hits {
     font-size:16px;
@@ -895,16 +848,12 @@ form .actions a.ui_button {
     float:left;
 }
 
-#thrs img {
-    float:left;
-    margin-right:5px;
-    border:0px solid #555555;
-}
-
 #thrs h2 a,#thr h2 a{
     font-size:22px;
     font-weight:normal;
 }
+
+/* ANSWERS */
 
 #thrs .ans {
     padding:5px;
@@ -1018,12 +967,6 @@ form .actions a.ui_button {
     text-decoration: none;
 }
 
-.votes .s_counter {
-    height:20px;
-    line-height:17px;
-    font-size:14px;
-}
-
 #thr .new_comment_a {
     float:right;
     margin-top:5px;
@@ -1031,7 +974,7 @@ form .actions a.ui_button {
 
 #ans .an_votes {
     padding:0px 8px;
-    background-color: #AAAAAA;
+    background-color: #DDD;
 }
 
 #ans .an {
@@ -1083,38 +1026,7 @@ form .actions a.ui_button {
     width: 674px;
 }*/
 
-/* atachments */
-
-.attach_info {
-    font-size: 10px;
-    color:#AAAAAA;
-}
-
-form .attaches_library .attach_actions {
-    height:100%;
-}
-
-ul.attaches_library {
-    margin-top:5px;
-    border-top: 1px dashed #999999;
-}
-
-ul.attaches_library li, ul.templates li, ul.users li {
-    display:block;
-/*    width:110px;*/
-    float:left;
-    text-align:center;
-    margin:5px;
-}
-ul.attaches_library li img, ul.templates li img, ul.users li img {
-    border: 1px solid #DDDDDD;
-}
-
-ul.attaches_library li a, ul.templates li a, ul.users li a {
-    display:block;
-}
-
-#reputation {
+.user_reputation {
     font-size:32px;
     text-align:center;
 }
@@ -1125,6 +1037,7 @@ ul.attaches_library li a, ul.templates li a, ul.users li a {
 */
 
 .user_l {
+    vertical-align:middle;
     display:inline-block;
     width:200px;
     font-size:15px;
@@ -1146,14 +1059,11 @@ ul.attaches_library li a, ul.templates li a, ul.users li a {
 */
 
 .user_ls {
+    vertical-align:middle;
     display:inline-block;
     font-size:17px;
     text-align:left;
     margin-right:10px;
-}
-
-.user_ls img {
-    margin-right:5px;
 }
 
 .user_ls .name {
@@ -1164,6 +1074,46 @@ ul.attaches_library li a, ul.templates li a, ul.users li a {
 .user_ls .reputation {
     background-color:#FFFFFF;
     padding:0px 5px;
+}
+
+#avatars {
+    text-align:center;
+    margin-top:20px;
+}
+
+.toc {
+    float:right;
+    clear:left;
+    width:210px;
+    background-color:#F9F9F0;
+    margin:5px;
+}
+
+.toc ul {
+    list-style: none;
+    margin:0px;
+    padding:7px 5px;
+}
+
+.toc li { font-weight:bold;margin-bottom:10px;}
+
+.toc div {display:none;}
+
+.summary {
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:8px;
+    color:#666;
+}
+.summary em {
+    color:#AAA;
+    padding: 0px 5px;
+    display:inline-block;
+    font-style:normal;
+}
+
+h2.summary {
+    margin-bottom:0px;
 }
 
 /*
@@ -1178,7 +1128,6 @@ ul.attaches_library li a, ul.templates li a, ul.users li a {
 
 .pagination a,.pagination span,.pagination em {
     font-size:20px;
-/*    border:1px solid #CCCCCC;*/
     padding: 0px 5px;
     display:inline-block;
     font-style:normal;
@@ -1208,64 +1157,9 @@ ul.attaches_library li a, ul.templates li a, ul.users li a {
 
 }
 
-table#activity_table {
-    border-width:0px;
-}
-
-table#activity_table td {
-    padding:3px 4px;
-    border-width:0px;
-}
-
-#avatars {
-    text-align:center;
-    width: 200px;
-    margin-top:20px;
-}
-
-#gravatar {
-    
-}
-
-.subscribelink {
-    padding:5px;
-    background:url("/assets/ui_button.gif") repeat scroll 0px 39px;
-    color: #FFFFFF;
-/*    margin:5px;*/
-}
-
-.toc {
-    float:right;
-    clear:left;
-    width:210px;
-    background-color:#F9F9F0;
-    margin:5px;
-}
-
-.toc ul {
-    list-style: none;
-    margin:0px;
-    padding:7px 5px;
-}
-
-.toc li { font-weight:bold;margin-bottom:10px;}
-
-.toc div {display:none;}
-
-#site .content table th{
-     padding:5px 10px;
-     padding-left:0px;
-}
-
-#site .content table td{
-     padding:5px 10px;
-     padding-left:0px;
-}
-
-#site .content table {
-    border-collapse:collapse;
-}
-
+/*
+*    CSS FOR SMALL SCREENS (ALWAYS ON BOTTOM)
+*/
 @media screen and (max-width: 760px) {
     body {
         font-size:14px;

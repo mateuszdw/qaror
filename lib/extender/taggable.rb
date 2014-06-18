@@ -78,7 +78,7 @@ module Extender
         end
 
         def tag_sanitize_pattern
-          /[^0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\- ]+/i
+          /[^0-9a-zA-Z\- ]+/i
         end
 
     end

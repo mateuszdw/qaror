@@ -244,6 +244,9 @@ pl:
   open: "otwórz"
   report_abuse: "zgłoś nadużycie"
   retag: "przetaguj"
+  views: "odsłon"
+  votes: "głosy"
+  current: "aktualna"
 
   #wyszukiwarka
   search_presence: "brak wyników"
@@ -282,6 +285,7 @@ pl:
   flag_or_close_reported: "Dziękujemy za zgłoszenie"
 
   simple_captcha:
+    placeholder: ""
     label: "Przepisz tekst z obrazka:"
     message:
       default: "jest nieprawidłowe. Jesteś człowiekiem? Spróbuj jeszcze raz."

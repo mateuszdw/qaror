@@ -207,7 +207,10 @@ en:
   # end of default translations
   #
 
+  # additional validation messages
   all_fields_required: "All fields required"
+  alphanumeric_and_spaces_required: "You can use only alphanumeric and spaces"
+  full_url_required: "Please provide url with http://"
 
   unauthorized:
     manage:
@@ -234,6 +237,7 @@ en:
   retag: "Retag"
   views: "Views"
   votes: "Votes"
+  current: "Current"
   
 
   # search
@@ -246,6 +250,7 @@ en:
   answer_stored: "Your answer has been saved but not yet published. Log in, to post a stored document."
   question_stored: "Your question has been saved but not yet published. Log in, to post a stored document."
 
+  # navigation tabs
   sort:
     ans:
       active: "Active"
@@ -278,12 +283,15 @@ en:
     user_tabs:
       info: "Info"
       info_title: "Info about user"
-      activity: "Activity"
-      activity_title: "Last user activity"
-      votes: "Votes"
-      votes_title: "Points earned by vote"
       favorites: "Favorites"
       favorites_title: "Favorite posts"
+      reputation: "Reputation"
+      reputation_title: "Points earned by vote"
+      votes: "Votes"
+      votes_title: ""
+      activity: "Activity"
+      activity_title: "Last user activity"
+      
     users:
       newest: "Recently joined"
       newest_title: "Sort by recently joined users"
@@ -321,6 +329,7 @@ en:
   flag_or_close_reported: "Thank you for reporting"
 
   simple_captcha:
+    placeholder: ""
     label: "Please, type text from image:"
     message:
       default: "is incorrect. Are you human? Try again."

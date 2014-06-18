@@ -1,5 +1,7 @@
 # encoding: utf-8
 class User < ActiveRecord::Base
+  
+  delegate :can?, :cannot?, :to => :ability
 
   STATUS_ANONYMOUS = 0
   STATUS_NOTCONFIRMED = 1
@@ -42,12 +44,12 @@ class User < ActiveRecord::Base
             :presence => true,
             :length => {:within => 5..100},
             :uniqueness => { :case_sensitive => false },
-            :format => {:with => /[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\- ]+/i, :message => "jest nieprawidłowe. Dozwolone są znaki alfabetu i cyfry"}
+            :format => {:with => /^[0-9a-zA-Z ]+$/i, :message => "#{I18n.t("errors.messages.invalid")}. #{I18n.t(:alphanumeric_and_spaces_required)}"}
 
   validates :email,
             :presence => true,
             :uniqueness => { :case_sensitive => false },
-            :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "jest nieprawidłowy." }
+            :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
   validates :password,
             :length => {:within => 5..30},
@@ -57,7 +59,7 @@ class User < ActiveRecord::Base
 
   validates :www,
             :allow_blank => true,
-            :format => {:with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :message => "jest nieprawidlowy. Podaj pelny adres np http://www.nazwastrony.pl" }
+            :format => {:with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix, :message => "#{I18n.t("errors.messages.invalid")}. #{I18n.t(:full_url_required)}" }
 
   before_save :do_password,:if => :should_validate_password?
   before_save :email_downcase
@@ -95,8 +97,14 @@ class User < ActiveRecord::Base
   end
 
   def reputation_points
-    self.activity_points.includes(:activity).not_undo.
-      where{(activities.name.like "%vote%") | (activities.name == "resolved")}.
+    self.activity_points.not_zero.includes(:activity).not_undo.
+    # COMMENTED 12.05.2014 where{(activities.name.like "%vote%") | (activities.name == "resolved")}.
+    order("activity_points.created_at desc")
+  end
+
+  def votes_points
+    self.activity_points.not_zero.includes(:activity).not_undo.
+      where{(activities.name.like "%vote%")}.
       order("activity_points.created_at desc")
   end
 
@@ -170,6 +178,18 @@ class User < ActiveRecord::Base
   def update_reputation
     self.reputation = self.activity_points.not_undo.sum(:value)
     self.save
+  end
+
+  def ability
+    @ability ||= Ability.new(self)
+  end
+
+  def gravatar_url
+    APP_CONFIG['gravatar_url'] + Digest::MD5.hexdigest(email) + "?d=identicon&s=128"
+  end
+
+  def avatar
+    avatar_url.blank? ? gravatar_url : avatar_url
   end
 
 private

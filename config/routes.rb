@@ -96,6 +96,7 @@ Qaror::Application.routes.draw do
     member do
       get 'send_activation_link'
       get 'activity'
+      get 'reputation'
       get 'votes'
       get 'favorites'
     end
@@ -104,6 +105,7 @@ Qaror::Application.routes.draw do
   match '/contact' => 'main#pages', :as => :contact_us
   match '/faq' => 'main#pages', :as => :faq
   match '/privacy' => 'main#pages', :as => :privacy
+  match '/privileges' => 'pages#privileges', :as => :privileges
   
   match '/remind_password', :to => 'users#remind_password_edit',:as=>:remind_password_edit_users
   match '/register', :to => 'users#new',:as => :register

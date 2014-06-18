@@ -1,0 +1,36 @@
+flag_voteup:
+  title: "vote up and flag posts"
+  desc: "vote up and flag posts"
+  value: 0
+leave_comments:
+  title: "leave comments"
+  desc: "leave comments for all questions and answers. You can always leave comments under your questions and answers"
+  value: 5
+votedown:
+  title: "vote down"
+  desc: "vote down when questions and answers are not useful"
+  value: 10
+reduceads:
+  title: "reduce ads"
+  desc: "reduce ads"
+  value: 200
+voteclose:
+  title: "vote close"
+  desc: "vote for close question"
+  value: 250
+retag_reopen:
+  title: "retag and reopen questions"
+  desc: "retag questions and vote for open questions"
+  value: 500
+votetotal:
+  title: "vote counts"
+  desc: "you can view vote details"
+  value: 1000
+createtags:
+  title: "create tags"
+  desc: "create new tags on the site"
+  value: 1500
+editposts:
+  title: "edit posts"
+  desc: "Edits to any question or answer are applied immediately"
+  value: 2000

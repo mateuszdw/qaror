@@ -1,12 +1,18 @@
 <div id="thrs">
   <div class="title">
-    <h2 class="left"><%=raw @user.sname %> <%=t 'thrs.favs' %>(<%= @user.favs.count %>)</h2>
+    <h2 class="left"><%=raw @user.sname %></h2>
     <div class="right">
       <%= render_navigation(:context=>:user_tabs) %>
     </div>
     <div class="clear"></div>
   </div>
-  <% @user.favs.each do |fav| %>
-    <%= render :partial=> 'thrs/item',:locals => {:thr=>fav.activityable,:show_fav=>true} %>
-  <% end %>
+  <div class="summary">
+    <em><%= @user.favs.count %></em>
+    <%=t 'sort.user_tabs.favorites' %>
+  </div>
+  <div id="content">
+    <% @user.favs.each do |fav| %>
+      <%= render :partial=> 'thrs/item',:locals => {:thr=>fav.activityable,:show_fav=>true} %>
+    <% end %>
+  </div>
 </div>

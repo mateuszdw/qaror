@@ -1,8 +1,7 @@
 # encoding: utf-8
 
 class An < ActiveRecord::Base
-  has_paper_trail :only => [:content], :on=> [:update],
-  :meta => {
+  has_paper_trail :only => [:content], :on=> [:update], :meta => {
     :user_id  => Proc.new { |m| m.updated_by.id },
     :summary  => Proc.new { |m| m.vsummary if m.changed? && !m.vsummary.blank? }
   }

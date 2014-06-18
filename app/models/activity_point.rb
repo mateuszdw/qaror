@@ -13,7 +13,8 @@ class ActivityPoint < ActiveRecord::Base
   validate :check_reputation, :if => :reduce_points_activity?
 
   after_save :update_reputation_for_activity
-
+  
+  scope :not_zero, where("value > 0")
   scope :not_undo, where(:undo=> NOT_UNDO)
   scope :created_today, where("CAST(created_at + interval '? seconds' AS date) = CAST(? AS date)", Time.zone.utc_offset, Time.now)
   

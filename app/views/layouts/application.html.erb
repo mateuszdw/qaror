@@ -11,7 +11,7 @@
   <meta name="author" content="mattdw" />
   <%= stylesheet_link_tag 'application' %>
   <%= javascript_include_tag 'application' %>
-  <%= render 'layouts/tagit'  if (['thrs','attaches'].include? controller_name) && (["new","create","edit","update"].include? action_name) %>
+  <%= render 'layouts/tagit'  if (['thrs'].include? controller_name) && (["new","create","edit","update"].include? action_name) %>
   <!--[if gte IE 5.5000]>
     <%#= javascript_include_tag 'pngfixe.js' %>
   <![endif]-->
