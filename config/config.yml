@@ -22,6 +22,9 @@ common: &common
 
   gravatar_url: "http://www.gravatar.com/avatar/"
 
+test:
+  <<: *common
+
 development:
   <<: *common
 

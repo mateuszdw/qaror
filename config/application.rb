@@ -2,10 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# load config.yml
-require 'yaml'
-APP_CONFIG = YAML.load(File.read(File.expand_path('../config.yml', __FILE__)))[Rails.env]
-
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -24,6 +20,8 @@ module Qaror
         raw html_tag
       end
     end
+
+    config.app_config = YAML.load_file("#{Rails.root.to_s}/config/config.yml")[Rails.env]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

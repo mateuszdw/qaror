@@ -17,7 +17,7 @@ Qaror::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = {
-    :host => APP_CONFIG['app_domain'],
+    :host => Qaror::Application.config.app_config['app_domain'],
   }
 
   # Print deprecation notices to the Rails logger

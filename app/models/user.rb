@@ -192,6 +192,22 @@ class User < ActiveRecord::Base
     avatar_url.blank? ? gravatar_url : avatar_url
   end
 
+  # overwrite method save_with_captcha of galetahub/simple-captcha gem
+  # for test purpose
+  def save_with_captcha
+    if Rails.env.test?
+      save
+    else
+      valid_with_captcha? && save(:validate => false)
+    end
+  end
+
+  def generate_remind_token
+    begin
+
+    end
+  end
+
 private
 
   def check_email_changed

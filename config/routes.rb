@@ -107,7 +107,7 @@ Qaror::Application.routes.draw do
   match '/privacy' => 'main#pages', :as => :privacy
   match '/privileges' => 'pages#privileges', :as => :privileges
   
-  match '/remind_password', :to => 'users#remind_password_edit',:as=>:remind_password_edit_users
+  match '/remind_password', :to => 'users#remind_password_edit',:as=>:remind_password
   match '/register', :to => 'users#new',:as => :register
   match '/login', :to => 'login#index',:as => :login
   match '/logout', :to => 'login#logout',:as => :logout
