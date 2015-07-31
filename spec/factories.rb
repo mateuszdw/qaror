@@ -5,4 +5,10 @@ FactoryGirl.define do
     f.password "secret"
     f.status 2
   end
+
+  factory :thr do
+    title
+    content
+    tagnames
+  end
 end
