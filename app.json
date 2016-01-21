@@ -8,7 +8,7 @@
     "APP_DOMAIN": {
       "description": "WARNING! Please replace <APP NAME> with your heroku app name. Replace full URL if you have custom domain for your QARoR app.",
       "value": "http://<APP NAME>.herokuapp.com"
-    }
+    },
     "DISPLAY_APP_NAME": {
       "value": "Your QARoR app name"
     }
