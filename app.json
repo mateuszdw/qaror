@@ -3,6 +3,7 @@
   "description": "The Open-Source Questions & Answers platform for Ruby on Rails",
   "repository": "https://github.com/mateuszdw/qaror",
   "keywords": ["discussions", "forums", "questions", "answers"],
+  "logo": "https://raw.githubusercontent.com/mateuszdw/qaror/master/app/assets/images/logo.png",
   "website": "http://qaror.herokuapp.com",
   "env": {
     "APP_DOMAIN": {
