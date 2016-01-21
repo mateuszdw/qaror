@@ -1,0 +1,20 @@
+{
+  "name": "QARoR",
+  "description": "The Open-Source Questions & Answers platform for Ruby on Rails",
+  "repository": "https://github.com/mateuszdw/qaror",
+  "keywords": ["discussions", "forums", "questions", "answers"],
+  "website": "http://qaror.herokuapp.com",
+  "env": {
+    "APP_DOMAIN": {
+      "description": "WARNING! Please replace <APP NAME> with your heroku app name. Replace full URL if you have custom domain for your QARoR app.",
+      "value": "http://<APP NAME>.herokuapp.com"
+    }
+    "DISPLAY_APP_NAME": {
+      "value": "Your QARoR app name"
+    }
+  },
+  "addons": [
+    "mailgun",
+    "memcachier"
+  ]
+}
