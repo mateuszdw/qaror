@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-gem 'rails', '3.2.17'
+ruby '2.1.1'
+gem 'rails', '3.2.22'
 
 gem 'thin'
 gem 'pg'
@@ -28,7 +28,7 @@ group :assets do
 end
 
 #libs
-gem "rmagick", :require => "RMagick"
+gem "rmagick", :require => "rmagick"
 gem 'jquery-rails'
 
 gem 'simple-navigation'
