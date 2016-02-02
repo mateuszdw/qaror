@@ -5,6 +5,10 @@
   "keywords": ["discussions", "forums", "questions", "answers"],
   "logo": "https://raw.githubusercontent.com/mateuszdw/qaror/master/app/assets/images/logo.png",
   "website": "http://qaror.herokuapp.com",
+  "scripts": {
+    "postdeploy": "run rake db:migrate",
+    "postdeploy": "run rake db:seed"
+    },
   "env": {
     "APP_DOMAIN": {
       "description": "WARNING! Please replace <APP NAME> with your heroku app name. Replace full URL if you have custom domain for your QARoR app.",

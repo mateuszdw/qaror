@@ -14,7 +14,11 @@ Because it`s:
 * easy to develop thanks Ruby on Rails
 * easy to deploy
 
-# Deploy on Heroku (heroku.com)
+# Install on Heroku (heroku.com)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mateuszdw/qaror)
+
+### Install manually on Heroku
 
 Before installation:
 
@@ -24,7 +28,7 @@ Before installation:
 
 Type in console:
 
-        $ git clone https://github.com/magicmat/qaror.git
+        $ git clone https://github.com/mateuszdw/qaror.git
         $ cd ./qaror
         $ bundle install
         $ git init
