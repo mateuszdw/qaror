@@ -6,8 +6,7 @@
   "logo": "https://raw.githubusercontent.com/mateuszdw/qaror/master/app/assets/images/logo.png",
   "website": "http://qaror.herokuapp.com",
   "scripts": {
-    "postdeploy": "run rake db:migrate",
-    "postdeploy": "run rake db:seed"
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
     },
   "env": {
     "APP_DOMAIN": {
