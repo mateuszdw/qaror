@@ -6,7 +6,8 @@
   "logo": "https://raw.githubusercontent.com/mateuszdw/qaror/master/app/assets/images/logo.png",
   "website": "http://qaror.herokuapp.com",
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed",
+    "postdeploy": "SECRET_OUTPUT=\"$(rake secret)\" && heroku config:add SECRET_KEY_BASE=$SECRET_OUTPUT"
     },
   "env": {
     "APP_DOMAIN": {

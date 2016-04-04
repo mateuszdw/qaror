@@ -1,11 +1,7 @@
 common: &common
   pagination_per_page: 20
 
-  display_app_name: <%= ENV['DISPLAY_APP_NAME'] %>
-
-  # for mailer only
-  app_domain: <%= ENV['APP_DOMAIN'] %>
-
+  # custom session handler
   remote_external_hash: "__external_hash"
   remote_cookies: "__session"
 

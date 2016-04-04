@@ -5,3 +5,5 @@ uploads/
 attaches/
 .bundle/config
 .ruby-version
+.env
+.Procfile
