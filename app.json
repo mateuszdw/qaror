@@ -6,9 +6,8 @@
   "logo": "https://raw.githubusercontent.com/mateuszdw/qaror/master/app/assets/images/logo.png",
   "website": "http://qaror.herokuapp.com",
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed",
-    "postdeploy": "SECRET_OUTPUT=\"$(rake secret)\" && heroku config:add SECRET_KEY_BASE=$SECRET_OUTPUT"
-    },
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+  },
   "env": {
     "APP_DOMAIN": {
       "description": "WARNING! Please replace <APP NAME> with your heroku app name. Replace full URL if you have custom domain for your QARoR app.",
@@ -16,6 +15,10 @@
     },
     "DISPLAY_APP_NAME": {
       "value": "Your QARoR app name"
+    },
+    "SECRET_KEY_BASE": {
+      "description": "This gets generated",
+      "generator": "secret"
     }
   },
   "addons": [
