@@ -48,6 +48,8 @@ If something goes wrong with addons read more on https://devcenter.heroku.com/
 
 # Contribution
 
+This project was implemented at StartX Stanford Accelerator
+
 Feel free to contribute the project
 
 # TODO
