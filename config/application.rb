@@ -5,6 +5,8 @@ require 'rails/all'
 # load config.yml
 require 'yaml'
 APP_CONFIG = YAML.load(File.read(File.expand_path('../config.yml', __FILE__)))[Rails.env]
+APP_CONFIG['display_app_name'] = ENV['DISPLAY_APP_NAME'] ? ENV['DISPLAY_APP_NAME'] : 'Default App Name'
+APP_CONFIG['app_domain'] = ENV['APP_DOMAIN'] ? ENV['APP_DOMAIN'] : 'yourdomain.com'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -24,6 +26,8 @@ module Qaror
         raw html_tag
       end
     end
+
+    config.app_config = YAML.load_file("#{Rails.root.to_s}/config/config.yml")[Rails.env]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

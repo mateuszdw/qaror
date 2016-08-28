@@ -3,12 +3,12 @@
 class Mailer < ActionMailer::Base
   default :from => APP_CONFIG['display_app_name']+' <notify@'+APP_CONFIG['app_domain']+'>'
   layout 'email'
-  
+
   def registration_confirmation(user)
     @user = user
     mail(:to => user.email,:subject=>"#{APP_CONFIG['display_app_name']}: confirm your e-mail")
   end
-  
+
   def remind_password(user)
     @user = user
     mail(:to => user.email,:subject=>"#{APP_CONFIG['display_app_name']}: change password")

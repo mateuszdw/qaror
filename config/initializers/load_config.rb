@@ -1,5 +1,5 @@
-APP_CONFIG['display_app_name'] = ENV['DISPLAY_APP_NAME']
-APP_CONFIG['app_domain'] = ENV['APP_DOMAIN']
+# this constant is assign in application.rb
+# APP_CONFIG = YAML.load_file("#{Rails.root.to_s}/config/config.yml")[Rails.env]
 
 # load reputation
 APP_REPUTATION = YAML.load_file("#{Rails.root.to_s}/config/reputation.yml")

@@ -122,7 +122,7 @@ class UsersController < ApplicationController
       @user.captcha = params[:user][:captcha]
       @user.captcha_key = params[:user][:captcha_key]
     end
-
+    
     respond_to do |format|
       if @user.save_with_captcha
         Mailer.remind_password(@user).deliver

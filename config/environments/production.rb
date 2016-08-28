@@ -63,7 +63,7 @@ Qaror::Application.configure do
   }
 
   config.action_mailer.default_url_options = {
-    :host => APP_CONFIG['app_domain'],
+    :host => APP_CONFIG['app_domain']
   }
 
   # Enable threaded mode
