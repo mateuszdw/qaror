@@ -1,6 +1,6 @@
 # encoding: utf-8
 class User < ActiveRecord::Base
-  
+
   delegate :can?, :cannot?, :to => :ability
 
   STATUS_ANONYMOUS = 0
