@@ -3,7 +3,11 @@ FactoryGirl.define do
     f.sequence(:name) { |n| "qaror#{n}" }
     f.sequence(:email) { |n| "qa#{n}@qaror.com" }
     f.password "secret"
-    f.status 2 # status active
+    f.status User::STATUS_ACTIVE # status active
+
+    trait :not_confirmed do
+      status User::STATUS_NOTCONFIRMED # user
+    end
 
     trait :registered do
       role 1 # user
@@ -29,9 +33,8 @@ FactoryGirl.define do
   # factory :activities do
   #   association :user, factory: :user
   #   t.references :activityable, :polymorphic => true
-  #   t.string :name
-  #   t.string :ip
-  #   t.datetime :created_at
+  #   f.sequence(:name) { |n| "activity#{n}" }
+  #   f.sequence(:ip) { |n| "0.0.0.#{n}" }
   #   t.datetime :undo_at
   #   t.text :extra
   # end

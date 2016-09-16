@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
   after_create :set_user_settings
 
   scope :active, where(:status => [STATUS_NOTCONFIRMED,STATUS_ACTIVE])
-  scope :sortable, lambda { |sort|
+  scope :sortable, lambda { |sort=nil|
     case sort
     when "reputation" then order("reputation DESC")
     when "newest" then order("created_at DESC")
