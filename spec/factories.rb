@@ -1,12 +1,37 @@
 FactoryGirl.define do
-  factory :user do |f|
-    f.sequence(:name) { |n| "qaror#{n}" }
-    f.sequence(:email) { |n| "qa#{n}@qaror.com" }
-    f.password "secret"
-    f.status User::STATUS_ACTIVE # status active
+  factory :user do |fu|
+    fu.sequence(:name) { |n| "qaror#{n}" }
+    fu.sequence(:email) { |n| "qa#{n}@qaror.com" }
+    fu.password "secret"
+    fu.status User::STATUS_ACTIVE # status active
 
-    trait :not_confirmed do
+    factory :user_not_confirmed do
       status User::STATUS_NOTCONFIRMED # user
+    end
+
+    factory :user_with_points do
+      after(:create) do |user|
+        create(:activity_point, user: user)
+      end
+    end
+
+    factory :user_with_two_activity_points do
+      after(:create) do |user|
+        create(:activity_point, user: user)
+        create(:activity_point, user: user)
+      end
+    end
+
+    factory :user_with_zero_points do
+      after(:create) do |user|
+        create(:activity_point_zero, user: user)
+      end
+    end
+
+    factory :user_with_undo_points do
+      after(:create) do |user|
+        create(:activity_point_undo, user: user)
+      end
     end
 
     trait :registered do
@@ -30,14 +55,40 @@ FactoryGirl.define do
     end
   end
 
-  # factory :activities do
-  #   association :user, factory: :user
-  #   t.references :activityable, :polymorphic => true
-  #   f.sequence(:name) { |n| "activity#{n}" }
-  #   f.sequence(:ip) { |n| "0.0.0.#{n}" }
-  #   t.datetime :undo_at
-  #   t.text :extra
-  # end
+  factory :activity do |fa|
+    association :user, factory: :user
+    activityable_type "Thr"
+    fa.sequence(:name) { |n| "activity#{n}" }
+    fa.sequence(:ip) { |n| "0.0.0.#{n}" }
+
+    factory :activity_for_answer do
+      activityable_type "An"
+    end
+
+    factory :activity_for_comment do
+      activityable_type "Comment"
+    end
+
+    trait :undo do
+      undo Activity::UNDO
+      undo_at Time.now
+    end
+  end
+
+  factory :activity_point do |fap|
+    association :user, factory: :user
+    association :activity, factory: :activity
+    value 10
+    # fap.sequence(:created_at) { |n| Time.now + 1.minute }
+
+    factory :activity_point_zero do
+      value 0
+    end
+
+    factory :activity_point_undo do
+      undo 1
+    end
+  end
 
   factory :thr, aliases: [:question] do
     title "This is long question title"
