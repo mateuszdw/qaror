@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with => :response_404
   rescue_from CanCan::AccessDenied do |e|
-    #    p e.action
     auth_failed(e.message.to_s + t(:unauthorize_desc,:link_to=> faq_url))
   end
 
@@ -15,7 +14,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   before_filter :check_auth
-  before_filter :set_user_language, :set_time_zone
+  before_filter :set_time_zone
 
 protected
 
@@ -76,13 +75,9 @@ private
     render :partial => 'shared/flash_window.js', :locals => hash
   end
 
-  # narazie na sztywniaka ustawiam strefe czasowa i jezyk
+
   def set_time_zone
       Time.zone = 'Warsaw'
-  end
-
-  def set_user_language
-#      I18n.locale = 'pl'
   end
 
   def check_auth
@@ -99,18 +94,14 @@ private
         reset_session
         redirect_to root_url
         return
-      else
-#        @user_session.touch(:last_activity)
       end
     end
   end
 
-  # aktualny, zalogowany user
   def current_user
     @user_session
   end
 
-  #narazie uzywane tylko do logowania openid
   def login_user_and_redirect(user,redirect=nil)
     if user.active?
       user.last_login = Time.now
