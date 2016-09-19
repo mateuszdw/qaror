@@ -1,7 +1,7 @@
 # What is QARoR?
 It's another Questions & Answers platform for Ruby on Rails
 
-If existing opensource QA clones scares you, try use this. It\`s created in Ruby on Rails of most common gems and clean solutions. No need complicated external libraries. It\`s saves time and help to quickly start talk with your community. And yes I agree, it needs some finishing touches. 
+If existing opensource QA clones scares you, try use this. It\`s created in Ruby on Rails of most common gems and clean solutions. No need complicated external libraries. It\`s saves time and help to quickly start talk with your community. And yes I agree, it needs some finishing touches.
 
 Live demo http://qaror.herokuapp.com/
 
@@ -39,7 +39,7 @@ Type in console:
         $ heroku run rake db:migrate
         $ heroku run rake db:seed
 
-Default QARoR installation is adapted to this Heroku Addons: 
+Default QARoR installation is adapted to this Heroku Addons:
 
         $ heroku addons:add mailgun:starter
         $ heroku addons:add memcachier:dev
@@ -47,6 +47,8 @@ Default QARoR installation is adapted to this Heroku Addons:
 If something goes wrong with addons read more on https://devcenter.heroku.com/
 
 # Contribution
+
+[![Code Climate](https://codeclimate.com/github/mateuszdw/qaror/badges/gpa.svg)](https://codeclimate.com/github/mateuszdw/qaror)
 
 This project was implemented at StartX Stanford Accelerator
 
